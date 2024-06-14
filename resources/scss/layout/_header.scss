@@ -8,9 +8,6 @@
     padding: 3rem;
     border-bottom: 1px solid v.$amarillo;
 
-    border: 2px solid red!important;
-    background-color: blue!important;
-
     &__contenedor {
         
         display: flex;
@@ -35,14 +32,14 @@
         border-radius: 50%;
         border: 3px solid rgba(v.$dorado, .0);
         transition: all 8s ease;
-
+        
+        background-color: rgba(v.$dorado, .3);
+        border-radius: 50%;
         &:hover {
 
-            background-color: rgba(v.$dorado, .3);
-            border-radius: 50%;
             border: 3px solid rgba(v.$dorado, .6);
 
-            transform: rotate(3600deg);
+            transform: rotate(1800deg);
         }
     }
 
@@ -58,13 +55,11 @@
         0px 0px 6px 3px  v.$amarillo;
 
 
-        transform: scale(100%);
-
+        transform: scale(80%);
         transition: transform 8s ease;
 
         &:hover {
-
-            transform: scale(80%);
+            transform: scale(100%);
         }
 
     }

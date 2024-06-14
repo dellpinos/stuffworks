@@ -18,7 +18,7 @@
             <p id="inicio-fecha"></p>
 
         </div>
-        <p class="inicio__nacimiento">Desde 16/11/87 han pasado <span id="inicio-dias-nacimiento"></span> dias, esto son <span id="inicio-years-nacimiento"></span> años.</p>
+        <p class="inicio__nacimiento">{{ $quote['content'] }} - <span>{{ $quote['author'] }}</span> </p>
 
     </div>
 </div>
