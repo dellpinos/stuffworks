@@ -1,0 +1,10 @@
+@use 'variables' as v;
+
+
+.c-green {
+    color: v.$verdeClaro!important;
+}
+
+.c-red {
+    color: v.$rojo!important;
+}
