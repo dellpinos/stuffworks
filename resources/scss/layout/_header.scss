@@ -1,7 +1,7 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
-$iconTime: 4s;
+$iconTime: 3s;
 
 .header {
     height: 19rem;
@@ -11,11 +11,71 @@ $iconTime: 4s;
     padding: 3rem;
     border-bottom: 1px solid v.$amarillo;
 
+    &__grid {}
+
+    &__mensaje {
+
+        background-color: v.$amarillo;
+
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        transition: max-height 1s ease, opacity 3s ease, padding 1s ease;
+
+
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+
+        label {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            margin: 0;
+            background-color: v.$amarillo;
+            border: .5px solid v.$grisOscuro;
+            font-size: 1.4rem;
+
+            width: 6rem;
+            text-align: center;
+            border-radius: .5rem;
+            padding: .5rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__mensaje-visible {
+
+
+        padding: .5rem 3rem;
+        max-height: 8rem;
+        opacity: 1;
+
+
+    }
+
+    &__mensaje-campo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
     &__contenedor {
 
         display: flex;
         justify-content: space-around;
-        gap: 5rem;
+
     }
 
     &__heading {
@@ -32,12 +92,17 @@ $iconTime: 4s;
     }
 
     &__grid-icono {
-        width: 25rem;
+        // max-width: 35rem;
+        width: 15rem;
         display: flex;
         gap: 2rem;
         align-items: center;
-
+        // transition: max-width 1s ease;
     }
+
+    // &__grid-icono--wider {
+    //     max-width: 35rem;
+    // }
 
     &__icono-opts {
 
@@ -46,6 +111,8 @@ $iconTime: 4s;
         gap: 1rem;
         width: 100%;
         color: v.$dorado;
+        // opacity: 0;
+        // transition: opacity 1s ease;
 
         p {
             margin: 0;
@@ -53,6 +120,10 @@ $iconTime: 4s;
             padding: 0;
         }
     }
+
+    // &__icono-opts--visible {
+    //     opacity: 1;
+    // }
     &__contenedor-icono {
 
         height: fit-content;
@@ -64,13 +135,13 @@ $iconTime: 4s;
 
         background-color: rgba(v.$dorado, .3);
         border-radius: 50%;
-        cursor: help;
+        cursor: pointer;
 
         &:hover {
 
             border: 3px solid rgba(v.$dorado, .6);
 
-            transform: rotate(720deg);
+            transform: rotate(180deg);
 
             .header__icono {
 
@@ -85,7 +156,44 @@ $iconTime: 4s;
 
             }
         }
+
+
+
+
     }
+
+    &__icono-pulse-success {
+
+        transition: box-shadow 0s ease;
+        animation: pulsoS 2s infinite;
+        @keyframes pulsoS {
+            0% {
+                box-shadow: 0 0 0 0 rgba(v.$verdeClaro, 0.9);
+            }
+            50% {
+                box-shadow: 0 0 10px 45px #3498db00;
+            }
+            100% {}
+        }
+    }
+
+    &__icono-pulse-fail {
+
+        transition: box-shadow 0s ease;
+        animation: pulso 2s infinite;
+        @keyframes pulso {
+            0% {
+                box-shadow: 0 0 0 0 rgba(v.$rojo, 0.9);
+            }
+            50% {
+                box-shadow: 0 0 10px 45px #3498db00;
+            }
+            100% {}
+        }
+    }
+
+
+
 
     &__icono {
 

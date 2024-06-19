@@ -22,26 +22,46 @@
 
 
 <body>
-    <header class="header">
-        <div class="header__contenedor">
+    <div class="header__grid">
+        <header class="header">
+            <div class="header__contenedor">
 
-            <div class="header__grid-icono">
-                <div class="header__contenedor-icono" id="header-icon-container">
-                    <i class="header__icono fa-solid fa-radiation" id="header-icon" ></i>
-                </div>
-                <div class="header__icono-opts">
-                    <p id="header-icon-display"></p>
+                <div class="header__grid-icono">
+                    <div class="header__contenedor-icono" id="header-icon-container">
+                        <i class="header__icono fa-solid fa-radiation" id="header-icon"></i>
+                    </div>
+                    <div class="header__icono-opts" id="header-icono-opts">
+                        <p id="header-icon-display-one"></p>
+                        <p id="header-icon-display-two"></p>
 
+                    </div>
                 </div>
+
+                <a href="{{ route('home') }}">
+                    <h1 class="header__heading">Stuff and other works</h1>
+                </a>
             </div>
 
-            <a href="{{ route('home') }}">
-                <h1 class="header__heading">Stuff and other works</h1>
-            </a>
+        </header>
+        <div class="header__mensaje" id="header-mensaje-opts">
+            <div class="header__mensaje-campo">
+                <label for="mens-tolerancia">Tolerancia:</label>
+                <input type="number" step=".1" id="mens-tolerancia" min=".1" max=".5">
+            </div>
+            <div class="header__mensaje-campo">
+                <label for="mens-help">Ayuda:</label>
+                <input type="checkbox" id="mens-help" checked>
+            </div>
+            <div class="header__mensaje-campo">
+                <p>Victorias: <span id="mens-victories">0</span></p>
+            </div>
+            <div class="header__mensaje-campo">
+                <p>Record: <span id="mens-record">0</span></p>
+            </div>
         </div>
 
-    </header>
 
+    </div>
 
     <div class="contenedor contenedor__grid">
 

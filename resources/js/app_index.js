@@ -1,11 +1,16 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
+
+
+    
+
     if (document.querySelector('#inicio-hora')) {
         main();
     }
 
     function main() {
+
 
         const elementoHora = document.querySelector('#inicio-hora');
         const elementoFecha = document.querySelector('#inicio-fecha');
