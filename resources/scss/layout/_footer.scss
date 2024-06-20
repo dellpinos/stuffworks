@@ -1,21 +1,81 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
+.footer {
 
-.footer__contenedor {
-
-    background-color: v.$DMgrisOscuro;
-    color: v.$blanco;
-    font-weight: 900;
-
-    p {
+    &__contenedor {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+        background-color: v.$DMgrisOscuro;
+        color: v.$blanco;
         text-align: center;
-        margin: 0 auto;
-        padding: 1rem;
-        font-size: 2rem;
+        font-size: 1.4rem;
+        padding: 2rem;
+        height: auto;
         
+        @include m.phone {
+            font-size: 1.8rem;
+        }
+        @include m.tablet {
+
+        }
     }
 
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+
+
+        @include m.tablet {
+            display: flex;
+            justify-content: space-around;
+            gap: 0;
+        }
+
+        a {
+            text-align: start;
+            width: 100%;
+            border-left: 1px solid v.$blanco;
+            padding-left: 2rem;
+            color: v.$blanco;
+            transition: color .3s ease, border-color .3s ease;
+            border-color: v.$blanco;
+            
+            &:hover {
+                transition: color .3s ease, border-color .3s ease;
+                
+                border-color: v.$amarillo;
+                color: v.$amarillo;
+            }
+        }
+    }
+
+    &__nombre {
+
+        color: v.$blanco;
+        font-size: 1.2rem;
+
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        line-height: 2;
+        transition: color .5s ease;
+        
+        &:hover {
+            color: v.$amarillo;
+        }
+        
+        span {
+            font-weight: v.$bold;
+        }
+        
+        @include m.tablet {
+            font-size: 1.8rem;
+            line-height: inherit;
+            margin-top: 2rem;
+            
+        }
+
+    }
 }
-
-

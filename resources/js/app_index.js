@@ -1,20 +1,16 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
-
-
-    
-
-    if (document.querySelector('#inicio-hora')) {
+    if (document.querySelector('#focus-hora')) {
         main();
     }
 
     function main() {
 
 
-        const elementoHora = document.querySelector('#inicio-hora');
-        const elementoFecha = document.querySelector('#inicio-fecha');
-        const elementoUnix = document.querySelector('#inicio-unix');
+        const elementoHora = document.querySelector('#focus-hora');
+        const elementoFecha = document.querySelector('#focus-fecha');
+        const elementoUnix = document.querySelector('#focus-unix');
         // const elementoDiasNacimiento = document.querySelector('#inicio-dias-nacimiento');
         // const elementoYearsNacimiento = document.querySelector('#inicio-years-nacimiento');
 

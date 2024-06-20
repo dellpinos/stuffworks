@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class ScriptsController extends Controller
 {
+    public function index()
+    {
+        return view('scripts.index');
+    }
     public function cuadricula()
     {
         return view('scripts.cuadricula');

@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @yield('meta')
     <title>@yield('titulo')</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Portfolio Martin del Pino">
+    <link rel="icon" href="{{ asset('img/radiation_icon.png') }}" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
 
     @vite('resources/scss/app.scss')
@@ -19,7 +20,6 @@
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 
 <body>
     <div class="header__grid">
@@ -60,43 +60,24 @@
             </div>
         </div>
 
-
     </div>
 
-    <div class="contenedor contenedor__grid">
-
-        <main>
-            @yield('contenido')
-        </main>
-
-        <sidebar class="sidebar">
-
-            <div class="sidebar__entrada">
-                <a href="{{ route('scripts.word_flip') }}">WordFlip</a>
-            </div>
-            <div class="sidebar__entrada">
-                <a href="{{ route('scripts.to_camel') }}">camelCase</a>
-            </div>
-            <div class="sidebar__entrada">
-                <a href="{{ route('scripts.cuadricula') }}">Cuadricula</a>
-            </div>
-            <div class="sidebar__entrada">
-                <a href="{{ route('scripts.hashtag') }}">#Hashtag</a>
-            </div>
-            <div class="sidebar__entrada">
-                <a href="{{ route('scripts.hexa') }}">Hexa</a>
-            </div>
-            <div class="sidebar__entrada">
-                <a href="{{ route('scripts.likes') }}">Likes</a>
-            </div>
-
-        </sidebar>
-
-    </div>
+    @yield('contenido')
 
     <footer class="footer__contenedor">
+        <div class="footer__grid">
 
-        <p>Martín del Pino - Todos los derechos reservados &copy; {{ date('Y') }}</p>
+            <a href="{{ route('home.focus') }}">Focus</a>
+            <a href="{{ route('home.apps') }}">Apps Online</a>
+            <a href="{{ route('scripts.index') }}">Challenges</a>
+            <a href="{{ route('home.little_apps') }}">Little Apps</a>
+            <a href="{{ route('home.contact') }}">Contact</a>
+            <a href="https://www.linkedin.com/in/martin-del-pino/" target="_blank">LinkedIn</a>
+
+        </div>
+        <a class="footer__nombre" href="https://dellpinos.com/" target="_blank"><span>Martín del Pino</span> - &copy;
+            Todos los derechos reservados {{ now()->year }}</a>
+
     </footer>
 
     @vite('resources/js/app.js')

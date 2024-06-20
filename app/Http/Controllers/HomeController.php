@@ -9,7 +9,11 @@ class HomeController extends Controller
 {
     public function index()
     {
+        return view('home.index');
+    }
 
+    public function focus()
+    {
         // API Consultar frase
         $url = "https://api.quotable.io/random";
 
@@ -17,11 +21,26 @@ class HomeController extends Controller
 
         if ($respuesta->successful()) {
             $quote = $respuesta->json();
-            return view('home.index', [
+            return view('home.focus', [
                 'quote' => $quote
             ]);
         } else {
             return response()->json(['error' => 'Unable to fetch data'], 500);
         }
+    }
+
+    public function little_Apps()
+    {
+        return view('home.little_apps');
+    }
+
+    public function apps()
+    {
+        return view('home.apps');
+    }
+
+    public function contact()
+    {
+        return view('home.contact');
     }
 }

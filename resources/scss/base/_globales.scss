@@ -12,11 +12,11 @@ html {
 }
 body {
     font-family: v.$fuentePrincipal;
-
 }
 
 main {
-    background-color: v.$DMgrisClaro;
+    min-height: 80vh;
+    
 }
 p{
     font-size: 2rem;
@@ -46,6 +46,7 @@ img {
 .contenedor {
     width: 100%;
     margin: 0 0;
+    background-color: v.$DMgrisClaro;
 
 }
 
@@ -56,8 +57,12 @@ img {
     
 }
 @include m.tablet {
+
+    .contenedor {
+        // min-height: 100rem;
+    }
     .contenedor__grid {
         grid-template-columns: 5fr 1fr;
-        min-height: 100rem;
+        
     }
 }

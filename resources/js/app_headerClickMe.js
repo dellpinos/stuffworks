@@ -4,14 +4,14 @@ window.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('#header-icon-container')) {
 
         const iconBtnCont = document.querySelector('#header-icon-container');
-        const displayOpts = document.querySelector('#header-icono-opts');
-        const displayOne = document.querySelector('#header-icon-display-one');
+        // const displayOpts = document.querySelector('#header-icono-opts');
+        // const displayOne = document.querySelector('#header-icon-display-one');
         const displayTwo = document.querySelector('#header-icon-display-two');
         const iconBtn = document.querySelector('#header-icon');
 
         let firstClick = 0;
         let firstClickObj = '';
-        let flag = true; // flag de un solo intento
+        // let flag = true; // flag de un solo intento
         let targetNum = 6; // segs
         let tolerance = 0.1; // segs
         let displayCron = 3; // segs
@@ -61,8 +61,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
                             // Lose
                             // Pierde por tiempo
-
-                            console.log(Date.now());
 
                             if (jugando) {
                                 iconBtn.classList.remove('c-green');
@@ -149,8 +147,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Nuevo número random entre 3 y 15
             targetNum = getRandomInt(3, 15);
-
-            console.warn(victoriesAcu);
                     
             if(localStorage.getItem('RECORD')) {
                 let record = localStorage.getItem('RECORD');

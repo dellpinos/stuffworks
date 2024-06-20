@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.scripts_layout')
 
 @section('meta')
 @endsection
@@ -6,7 +6,7 @@
 @section('titulo')
 @endsection
 
-@section('contenido')
+@section('main-content')
 
 <div class="contenido wordFlip">
     <h2>#Hashtag</h2>
