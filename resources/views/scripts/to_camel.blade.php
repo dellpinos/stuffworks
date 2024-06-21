@@ -4,28 +4,27 @@
 @endsection
 
 @section('titulo')
+    Challenge - camelCase
 @endsection
 
 @section('main-content')
-    <div class="contenido wordFlip">
-        <h2>toCamel</h2>
-        <form class="formularioWF">
-
-            <fieldset>
-                <legend>Convierto cualquier texto en camelCase. <br><br>
-                    Ejemplo: <br>
-                    Input: "Este ES-UN_eJempLO de texto"<br>
-                    Output: "esteEsUnEjemploDeTexto"</legend>
-                <div>
-                    <input type="text" placeholder="Voy a escribir algo inútil" id="inputWordFlip">
-                </div>
-                <div class="boton">
-                    <p style="cursor: pointer;" type="submit" id="botonFormularioToCamel">Enviar</p>
-                </div>
-                <div class="contenedorResultado">
-                    <p id="resultadoWF"></p>
-                </div>
-            </fieldset>
+    <div class="scripts__contenido">
+        <h2 class="scripts__heading">camelCase</h2>
+        <form class="formulario" id="formularioToCamel">
+            <p class="formulario__description">Convierte cualquier texto en camelCase.</p>
+            <div class="formulario__example">
+                <p>Input: "Este ES-UN_eJempLO de texto"</p>
+                <p>Output: "esteEsUnEjemploDeTexto"</p>
+            </div>
+            <div>
+                <input type="text" placeholder="Escribe cualquier texto" id="inputToCamel">
+            </div>
+            <div class="formulario__boton-contenedor">
+                <button id="botonFormularioToCamel">Enviar</button>
+            </div>
         </form>
+        <div class="scripts__resultado-contenedor">
+            <p class="scripts__resultado" id="resultadoToCamel">Resultado</p>
+        </div>
     </div>
 @endsection

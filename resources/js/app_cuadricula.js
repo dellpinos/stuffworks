@@ -42,12 +42,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const botonFormulario = document.querySelector('#botonFormularioCuadricula');
 
-        const mensError = document.querySelector('#mensajeError');
-        const alto = document.querySelector('#inputAlto');
-        const ancho = document.querySelector('#inputAncho');
-        const resultado = document.querySelector('.resultado_cuadricula');
+        const alto = document.querySelector('#inputCuadriculaAlto');
+        const ancho = document.querySelector('#inputCuadriculaAncho');
+        const resultado = document.querySelector('#resultadoCuadricula');
 
-        botonFormulario.addEventListener('click', function () {
+        botonFormulario.addEventListener('click', function (e) {
+            e.preventDefault();
 
             if (alto.value > 500 || ancho.value > 100) {
 

@@ -4,38 +4,28 @@
 @endsection
 
 @section('titulo')
+    Challenge - Cuadrícula
 @endsection
 
 @section('main-content')
-
-<div class="contenido wordFlip">
-    <h2>Cuadricula</h2>
-    <div class="formularioWF">
-
-        <fieldset>
-            <legend>Genero una cuadricula</legend>
-
-            <div style="display: flex; gap: 3rem;">
-                <div style="width: 100%;">
-                    <label>Altura</label>
-                    <input type="text" placeholder="Alto" id="inputAlto">
-
-                </div>
-                <div style="width: 100%;">
-                    <label for="">Ancho</label>
-                    <input type="text" placeholder="Ancho" id="inputAncho">
-                </div>
+    <div class="scripts__contenido">
+        <h2 class="scripts__heading">Cuadrícula</h2>
+        <form class="formulario">
+            <p class="formulario__description">Genera una cuadricula</p>
+            <div class="formulario__example">
+                <p>Input: "4" - "6"</p>
+                <p>Output: Una Cuadrícula</p>
             </div>
-
-            <div class="boton">
-                <p style="cursor: pointer;" type="submit" id="botonFormularioCuadricula">Enviar</p>
+            <div class="formulario__campos">
+                <input type="number" min="1" max="10" placeholder="Alto" id="inputCuadriculaAlto">
+                <input type="number" min="1" max="10" placeholder="Ancho" id="inputCuadriculaAncho">
             </div>
-            <div class="resultado_cuadricula" style="font-size:40px!important;">
-                Ingresa dos números
+            <div class="formulario__boton-contenedor">
+                <button id="botonFormularioCuadricula">Enviar</button>
             </div>
-        </fieldset>
+        </form>
+        <div class="scripts__resultado-contenedor">
+            <p class="scripts__resultado" id="resultadoCuadricula">Resultado</p>
+        </div>
     </div>
-</div>
-
-
 @endsection

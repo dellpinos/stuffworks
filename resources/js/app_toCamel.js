@@ -6,9 +6,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function toCamel() {
         const botonFormulario = document.querySelector('#botonFormularioToCamel');
-        const formulario = document.querySelector('.formularioWF');
-        const texto = document.querySelector('#inputWordFlip');
-        const resultado = document.querySelector('#resultadoWF');
+        const formulario = document.querySelector('#formularioToCamel');
+        const texto = document.querySelector('#inputToCamel');
+        const resultado = document.querySelector('#resultadoToCamel');
 
         botonFormulario.addEventListener('click', function () {
             const stringIngresado = texto.value;
@@ -38,14 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-
-
             resultado.textContent = letraMin;
         }
-
-
     }
-
-
-
 });

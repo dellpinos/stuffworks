@@ -3,16 +3,15 @@ window.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('#botonFormularioWordFlip')) {
         wordFlip();
     }
-
-
-
+    
     function wordFlip() {
         const botonFormulario = document.querySelector('#botonFormularioWordFlip');
         const formulario = document.querySelector('.formularioWF');
         const texto = document.querySelector('#inputWordFlip');
         const resultado = document.querySelector('#resultadoWF');
 
-        botonFormulario.addEventListener('click', function () {
+        botonFormulario.addEventListener('click', function (e) {
+            e.preventDefault();
             const stringIngresado = texto.value;
             invertirPalabra(stringIngresado);
         });

@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
     @vite('resources/scss/app.scss')
 
@@ -38,7 +38,7 @@
                 </div>
 
                 <a href="{{ route('home') }}">
-                    <h1 class="header__heading">Stuff and other works</h1>
+                    <h1 class="header__heading">Stuff and Scripts</h1>
                 </a>
             </div>
 
