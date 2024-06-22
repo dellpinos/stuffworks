@@ -1,19 +1,14 @@
 @use '../base/mixins' as m;
 @use '../base/variables' as v;
 
-
 .focus {
-
 
     &__contenedor {
         background-color: v.$DMgrisClaro;
-
         display: flex;
         flex-direction: column;
         align-items: center;
-
         padding: 10rem 8rem 15rem 8rem;
-
 
     }
 
@@ -27,10 +22,10 @@
         color: v.$amarillo;
 
         h1 {
-            font-size: 12rem;
+            font-size: 15rem;
             text-align: center;
+            padding: 2rem 0;
         }
-
     }
 
     &__icono {
@@ -40,6 +35,24 @@
         border-radius: 50%;
 
     }
+
+    // &__hora-contenedor {
+
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+
+    //     padding: 10rem 0;
+
+
+    //     h2 {
+    //         min-width: 70%;
+    //     }
+    //     p, h2 {
+    //         font-size: 20rem;
+    //         margin: 0;
+    //     }
+    // }
 
     &__contenedor-fechas {
         display: flex;

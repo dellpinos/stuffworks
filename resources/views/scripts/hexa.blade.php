@@ -4,32 +4,27 @@
 @endsection
 
 @section('titulo')
+    Challenge - Hexa
 @endsection
 
 @section('main-content')
-
-<div class="contenido wordFlip">
-    <h2>Hexa</h2>
-    <div class="formularioWF">
-
-        <fieldset>
-            <legend>Convierto colores RGB en Hexadecimal. Los números deben estar separados por una coma. <br><br>
-                Ejemplo: <br>
-                Input: "255,10,111<br> 
-                Output: "FF0A6F"</legend>
+    <div class="scripts__contenido">
+        <h2 class="scripts__heading">Hexa</h2>
+        <form class="formulario">
+            <p class="formulario__description">Convierte colores RGB en Hexadecimal. Los números deben estar separados por una coma.</p>
+            <div class="formulario__example">
+                <p>Input: "255,10,111"</p>
+                <p>Output: "FF0A6F"</p>
+            </div>
             <div>
-                <input type="text" placeholder="Color RGB" id="inputHexa">
+                <input type="" placeholder="Un color RGB" id="inputHexa">
             </div>
-            <div class="boton">
-                <p style="cursor: pointer;" type="submit" id="botonFormularioHexa">Enviar</p>
+            <div class="formulario__boton-contenedor">
+                <button id="botonFormularioHexa">Enviar</button>
             </div>
-            <div class="contenedorResultado">
-                <p id="resultadoHexa"></p>
-            </div>
-        </fieldset>
+        </form>
+        <div class="scripts__resultado-contenedor">
+            <p class="scripts__resultado" id="resultadoHexa">Resultado</p>
+        </div>
     </div>
-</div>
-
-
-
 @endsection

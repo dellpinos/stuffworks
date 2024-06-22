@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         let firstClick = 0;
         let firstClickObj = '';
-        // let flag = true; // flag de un solo intento
+        let flag = true; // flag de un solo intento
         let targetNum = 6; // segs
         let tolerance = 0.1; // segs
         let displayCron = 3; // segs
@@ -39,6 +39,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 setInterval(() => {
                     const elapsedTime = updateTimer();
+
+                    if(jugando) {
+                        iconBtnCont.classList.add('cursor-wait');
+                        
+                    } else {
+                        iconBtnCont.classList.remove('cursor-wait');
+                        
+                    }
 
                     if (elapsedTime <= targetNum) {
                         displayTwo.textContent = (targetNum - elapsedTime).toFixed(2) + " segs";

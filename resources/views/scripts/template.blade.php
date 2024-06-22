@@ -1,3 +1,6 @@
+
+{{-- Este es un template para utilizar en cada nuevo script, cuenta con un formulario y elementos básicos con estilos asignados --}}
+
 @extends('layouts.scripts_layout')
 
 @section('meta')

@@ -52,6 +52,11 @@
         }
     }
 
+    &__enlace--activo {
+        color: v.$amarillo!important;
+        border-color: v.$amarillo!important;
+    }
+
     &__nombre {
 
         color: v.$blanco;

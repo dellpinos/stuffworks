@@ -2,7 +2,7 @@ import './app_arrayNesting';
 import './app_cuadricula';
 import './app_hashtag';
 import './app_hexa';
-import './app_index';
+import './app_focus';
 import './app_likes';
 import './app_orden';
 import './app_toCamel';

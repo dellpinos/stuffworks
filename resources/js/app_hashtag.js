@@ -6,8 +6,6 @@ window.addEventListener('DOMContentLoaded', () => {
         main();
     }
 
-
-
     const hashtag = (str) => {
 
         const regex = /\s/g;
@@ -49,8 +47,9 @@ window.addEventListener('DOMContentLoaded', () => {
         const texto = document.querySelector('#inputHashtag');
         const resultado = document.querySelector('#resultadoHashtag');
 
-        botonFormulario.addEventListener('click', function () {
+        botonFormulario.addEventListener('click', function (e) {
 
+            e.preventDefault();
             const stringIngresado = texto.value;
             const respuesta = hashtag(stringIngresado);
 

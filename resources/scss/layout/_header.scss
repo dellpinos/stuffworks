@@ -55,13 +55,9 @@ $iconTime: 3s;
     }
 
     &__mensaje-visible {
-
-
         padding: .5rem 3rem;
         max-height: 8rem;
         opacity: 1;
-
-
     }
 
     &__mensaje-campo {
@@ -80,7 +76,7 @@ $iconTime: 3s;
 
     &__heading {
 
-        color: v.$amarillo;
+        color: v.$dorado;
         font-size: 5rem;
         letter-spacing: 2rem;
         margin: 0.5rem;
@@ -146,7 +142,7 @@ $iconTime: 3s;
             .header__icono {
 
                 border: 1.5px solid v.$amarillo;
-                transform: scale(100%);
+                transform: scale(90%);
                 color: #BFBFBF;
                 text-shadow:
                     1px 1px 2px #000,

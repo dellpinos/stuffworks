@@ -4,30 +4,27 @@
 @endsection
 
 @section('titulo')
+    Challenge - #Hashtag
 @endsection
 
 @section('main-content')
-
-<div class="contenido wordFlip">
-    <h2>#Hashtag</h2>
-    <div class="formularioWF">
-
-        <fieldset>
-            <legend>Convierto frases en hashtags, el resultado no puede superar los 140 caracteres <br><br>
-                Ejemplo: <br>
-                Input: "tenemos Un Problema"<br>
-                Output: "#TenemosUnProblema"</legend>
+    <div class="scripts__contenido">
+        <h2 class="scripts__heading">#Hashtag</h2>
+        <form class="formulario">
+            <p class="formulario__description">Convierte frases en hashtags, el resultado no puede superar los 140 caracteres</p>
+            <div class="formulario__example">
+                <p>Input: "tenemos Un Problema"</p>
+                <p>Output: "#TenemosUnProblema"</p>
+            </div>
             <div>
-                <input type="text" placeholder="Texto" id="inputHashtag">
+                <input type="text" placeholder="Escribe cualquier texto" id="inputHashtag">
             </div>
-            <div class="boton">
-                <p style="cursor: pointer;" type="submit" id="botonFormularioHashtag">Enviar</p>
+            <div class="formulario__boton-contenedor">
+                <button id="botonFormularioHashtag">Enviar</button>
             </div>
-            <div class="contenedorResultado">
-                <p id="resultadoHashtag"></p>
-            </div>
-        </fieldset>
+        </form>
+        <div class="scripts__resultado-contenedor">
+            <p class="scripts__resultado" id="resultadoHashtag">Resultado</p>
+        </div>
     </div>
-</div>
-
 @endsection

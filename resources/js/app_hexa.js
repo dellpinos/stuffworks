@@ -5,14 +5,15 @@ window.addEventListener('DOMContentLoaded', () => {
         hexa();
     }
 
-
     function hexa() {
         const botonFormulario = document.querySelector('#botonFormularioHexa');
 
         const texto = document.querySelector('#inputHexa');
         const resultado = document.querySelector('#resultadoHexa');
 
-        botonFormulario.addEventListener('click', function () {
+        botonFormulario.addEventListener('click', function (e) {
+
+            e.preventDefault();
 
             const stringIngresado = texto.value.split(',');
             const respuesta = rgb(stringIngresado[0], stringIngresado[1], stringIngresado[2]);

@@ -1,0 +1,59 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+.inicio {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20rem 0 25rem 0;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    &__enlace {
+        background-color: v.$amarillo;
+        padding: 3rem 6rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 4rem;
+        border: 1px solid v.$dorado;
+        color: v.$negro;
+
+        box-shadow: 0 0 10px 5px lighten(v.$DMgrisOscuro, 10%) inset,
+        0 0 10px v.$amarillo;
+        transition: background-color .7s ease, box-shadow .7s ease, color 1s ease;
+
+        p {
+            font-size: 4rem;
+
+        }
+
+        img {
+            width: 16rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 0 #FFF;
+            transition:box-shadow 2s ease;
+
+        }
+
+        &:hover {
+
+            background-color: v.$dorado;
+            box-shadow: 0 0 20px 5px lighten(v.$DMgrisOscuro, 5%) inset;
+            color: v.$blanco;
+            img {
+                // box-shadow: 0 0 20px 5px lighten(v.$DMgrisOscuro, 5%);
+                box-shadow: 0 0 20px 5px lighten(v.$blanco, 5%);
+            }
+
+        }
+    }
+}

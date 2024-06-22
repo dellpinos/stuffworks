@@ -4,22 +4,16 @@ window.addEventListener('DOMContentLoaded', () => {
         main();
     }
 
-
     function main() {
 
         const botonFormulario = document.querySelector('#botonFormularioLikes');
-
         const input = document.querySelector('#inputLikes');
-
-
         const resultado = document.querySelector('#resultadoLikes');
 
-
-
-        botonFormulario.addEventListener('click', function () {
+        botonFormulario.addEventListener('click', function (e) {
+            e.preventDefault();
 
             const nameArray = input.value.split(',');
-
             const name = stringName(nameArray);
 
             function stringName(array) {
@@ -43,6 +37,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
         });
     }
-
-
 })

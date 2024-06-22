@@ -28,7 +28,8 @@
 
                 <div class="header__grid-icono">
                     <div class="header__contenedor-icono" id="header-icon-container">
-                        <i class="header__icono fa-solid fa-radiation" id="header-icon"></i>
+                        {{-- <i class="header__icono fa-solid fa-radiation" id="header-icon"></i> --}}
+                        <i class="header__icono fa-solid fa-gear" id="header-icon"></i>
                     </div>
                     <div class="header__icono-opts" id="header-icono-opts">
                         <p id="header-icon-display-one"></p>
@@ -64,20 +65,19 @@
 
     @yield('contenido')
 
+    <div class="@if (request()->routeIs('scripts.likes')) footer__enlace--activo @endif">
+
     <footer class="footer__contenedor">
         <div class="footer__grid">
-
-            <a href="{{ route('home.focus') }}">Focus</a>
-            <a href="{{ route('home.apps') }}">Apps Online</a>
-            <a href="{{ route('scripts.index') }}">Challenges</a>
-            <a href="{{ route('home.little_apps') }}">Little Apps</a>
-            <a href="{{ route('home.contact') }}">Contact</a>
-            <a href="https://www.linkedin.com/in/martin-del-pino/" target="_blank">LinkedIn</a>
-
+            <a href="{{ route('home.focus') }}" class="@if (request()->routeIs('home.focus')) footer__enlace--activo @endif">Focus</a>
+            <a href="{{ route('home.apps') }}" class="@if (request()->routeIs('home.apps')) footer__enlace--activo @endif">Apps Online</a>
+            <a href="{{ route('scripts.index') }}" class="@if (request()->routeIs('scripts.index')) footer__enlace--activo @endif">Challenges</a>
+            <a href="{{ route('home.little_apps') }}" class="@if (request()->routeIs('home.little_apps')) footer__enlace--activo @endif">Little Apps</a>
+            <a href="{{ route('home.contact') }}" class="@if (request()->routeIs('home.contact')) footer__enlace--activo @endif">Contact</a>
+            {{-- <a href="https://www.linkedin.com/in/martin-del-pino/" target="_blank">LinkedIn</a> --}}
         </div>
         <a class="footer__nombre" href="https://dellpinos.com/" target="_blank"><span>Martín del Pino</span> - &copy;
             Todos los derechos reservados {{ now()->year }}</a>
-
     </footer>
 
     @vite('resources/js/app.js')

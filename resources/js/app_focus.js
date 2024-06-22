@@ -32,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // elementoYearsNacimiento.textContent = Number((diferenciaNacimiento / 365).toFixed(2));
 
             elementoHora.innerText = `< ${hs}:${min}:${sec} />`;
+            // elementoHora.innerText = `${hs}:${min}:${sec}`;
 
             elementoFecha.innerText = fechaActual.toLocaleDateString('es-ES');
             elementoUnix.innerText = 'Unix: ' + fechaActualEnSegundos;
