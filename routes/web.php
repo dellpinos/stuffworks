@@ -9,6 +9,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/little_apps', [HomeController::class, 'little_apps'])->name('home.little_apps');
 Route::get('/focus', [Homecontroller::class, 'focus'])->name('home.focus');
+Route::get('/focus_lotr', [Homecontroller::class, 'focus_lotr'])->name('home.focus_lotr');
 Route::get('/apps', [HomeController::class, 'apps'])->name('home.apps');
 Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
 

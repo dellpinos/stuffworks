@@ -29,6 +29,25 @@ class HomeController extends Controller
         }
     }
 
+    public function focus_lotr()
+    {
+        // // API Consultar frase
+        // $url = "https://api.quotable.io/random";
+
+        // $respuesta = Http::get($url);
+
+        // if ($respuesta->successful()) {
+        //     $quote = $respuesta->json();
+        //     return view('home.focus', [
+        //         'quote' => $quote
+        //     ]);
+        // } else {
+        //     return response()->json(['error' => 'Unable to fetch data'], 500);
+        // }
+
+        return view('home.focus_lotr');
+    }
+
     public function little_Apps()
     {
         return view('home.little_apps');

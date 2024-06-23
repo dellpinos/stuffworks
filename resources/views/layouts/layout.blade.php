@@ -69,10 +69,11 @@
 
     <footer class="footer__contenedor">
         <div class="footer__grid">
-            <a href="{{ route('home.focus') }}" class="@if (request()->routeIs('home.focus')) footer__enlace--activo @endif">Focus</a>
             <a href="{{ route('home.apps') }}" class="@if (request()->routeIs('home.apps')) footer__enlace--activo @endif">Apps Online</a>
-            <a href="{{ route('scripts.index') }}" class="@if (request()->routeIs('scripts.index')) footer__enlace--activo @endif">Challenges</a>
             <a href="{{ route('home.little_apps') }}" class="@if (request()->routeIs('home.little_apps')) footer__enlace--activo @endif">Little Apps</a>
+            <a href="{{ route('scripts.index') }}" class="@if (request()->routeIs('scripts.index')) footer__enlace--activo @endif">Challenges</a>
+            <a href="{{ route('home.focus') }}" class="@if (request()->routeIs('home.focus')) footer__enlace--activo @endif">Focus Page</a>
+            <a href="{{ route('home.focus_lotr') }}" class="@if (request()->routeIs('home.focus')) footer__enlace--activo @endif">Focus Ring</a>
             <a href="{{ route('home.contact') }}" class="@if (request()->routeIs('home.contact')) footer__enlace--activo @endif">Contact</a>
             {{-- <a href="https://www.linkedin.com/in/martin-del-pino/" target="_blank">LinkedIn</a> --}}
         </div>
