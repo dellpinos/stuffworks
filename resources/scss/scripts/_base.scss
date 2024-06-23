@@ -1,0 +1,96 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+.scripts {
+
+    &__contenido {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 8rem 0;
+    }
+
+    &__heading {
+        font-size: 7rem;
+        color: v.$blanco;
+    }
+
+    &__resultado-contenedor {
+        background-color: v.$gris;
+        width: 80%;
+        min-height: 20rem;
+        border-radius: 2rem;
+    }
+
+    &__resultado {
+        font-family: v.$fuenteCode;
+        color: v.$blanco;
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+.formulario {
+
+    width: 100%;
+    padding: 5rem 10rem;
+    color: v.$blanco;
+
+    &__campos {
+        display: flex;
+        gap: 1rem;
+    }
+
+    input {
+        display: block;
+        text-align: center;
+        font-size: 1.5rem;
+        width: 95%;
+        height: 5rem;
+        margin: 0 auto;
+        border: 1px solid v.$amarillo;
+        background-color: v.$DMgrisClaro;
+        color: v.$blanco;
+
+    }
+
+    &__description {
+        margin-bottom: 5rem;
+
+    }
+
+    &__example {
+        margin-bottom: 5rem;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__boton-contenedor {
+
+        margin-top: 5rem;
+        text-align: center;
+
+        button {
+            text-transform: uppercase;
+
+            padding: 1.5rem 3rem;
+            font-size: 2.5rem;
+            border: none;
+            background-color: v.$DMgrisOscuro;
+            color: v.$blanco;
+            border-radius: 1rem;
+            transition: color .5s ease;
+            font-family: v.$fuenteSecundaria;
+
+            &:hover {
+                color: v.$dorado;
+                cursor: pointer;
+
+            }
+        }
+    }
+}

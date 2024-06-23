@@ -1,0 +1,211 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+$iconTime: 3s;
+
+.header {
+    height: 19rem;
+    text-align: center;
+    display: block;
+    background-color: v.$DMgrisOscuro;
+    padding: 3rem;
+    border-bottom: 1px solid v.$amarillo;
+
+    &__grid {}
+
+    &__mensaje {
+
+        background-color: v.$amarillo;
+
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        transition: max-height 1s ease, opacity 3s ease, padding 1s ease;
+
+
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+
+        label {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            margin: 0;
+            background-color: v.$amarillo;
+            border: .5px solid v.$grisOscuro;
+            font-size: 1.4rem;
+
+            width: 6rem;
+            text-align: center;
+            border-radius: .5rem;
+            padding: .5rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__mensaje-visible {
+        padding: .5rem 3rem;
+        max-height: 8rem;
+        opacity: 1;
+    }
+
+    &__mensaje-campo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    &__contenedor {
+
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+    &__heading {
+
+        color: v.$dorado;
+        font-size: 5rem;
+        letter-spacing: 2rem;
+        margin: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+
+    }
+
+    &__grid-icono {
+        // max-width: 35rem;
+        width: 15rem;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        // transition: max-width 1s ease;
+    }
+
+    // &__grid-icono--wider {
+    //     max-width: 35rem;
+    // }
+
+    &__icono-opts {
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        color: v.$dorado;
+        // opacity: 0;
+        // transition: opacity 1s ease;
+
+        p {
+            margin: 0;
+            text-align: center;
+            padding: 0;
+        }
+    }
+
+    // &__icono-opts--visible {
+    //     opacity: 1;
+    // }
+    &__contenedor-icono {
+
+        height: fit-content;
+        width: fit-content;
+        padding: .5rem;
+        border-radius: 50%;
+        border: 3px solid rgba(v.$dorado, .0);
+        transition: all $iconTime ease;
+
+        background-color: rgba(v.$dorado, .3);
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+
+            border: 3px solid rgba(v.$dorado, .6);
+
+            transform: rotate(180deg);
+
+            .header__icono {
+
+                border: 1.5px solid v.$amarillo;
+                transform: scale(90%);
+                color: #BFBFBF;
+                text-shadow:
+                    1px 1px 2px #000,
+                    2px 2px 5px #b8b8b8,
+                    -1px -1px 2px #000,
+                    -2px -2px 5px #b8b8b8;
+
+            }
+        }
+
+
+
+
+    }
+
+    &__icono-pulse-success {
+
+        transition: box-shadow 0s ease;
+        animation: pulsoS 2s infinite;
+        @keyframes pulsoS {
+            0% {
+                box-shadow: 0 0 0 0 rgba(v.$verdeClaro, 0.9);
+            }
+            50% {
+                box-shadow: 0 0 10px 45px #3498db00;
+            }
+            100% {}
+        }
+    }
+
+    &__icono-pulse-fail {
+
+        transition: box-shadow 0s ease;
+        animation: pulso 2s infinite;
+        @keyframes pulso {
+            0% {
+                box-shadow: 0 0 0 0 rgba(v.$rojo, 0.9);
+            }
+            50% {
+                box-shadow: 0 0 10px 45px #3498db00;
+            }
+            100% {}
+        }
+    }
+
+
+
+
+    &__icono {
+
+        border-radius: 50%;
+        font-size: 10rem;
+        color: v.$negro;
+
+        background-color: v.$amarillo;
+        border: 1.5px solid v.$dorado;
+        box-shadow: 5px 5px 3px inset v.$dorado,
+            0px 0px 6px 3px v.$amarillo;
+
+        text-shadow: 0 0 0;
+
+        transform: scale(80%);
+        transition: transform $iconTime ease, text-shadow $iconTime ease, border $iconTime ease;
+
+    }
+}

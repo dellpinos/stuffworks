@@ -1,1 +1,10 @@
-import './bootstrap';
+import './app_arrayNesting';
+import './app_cuadricula';
+import './app_hashtag';
+import './app_hexa';
+import './app_focus';
+import './app_likes';
+import './app_orden';
+import './app_toCamel';
+import './app_wordflip';
+import './app_headerClickMe';
