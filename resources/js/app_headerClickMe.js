@@ -28,9 +28,25 @@ window.addEventListener('DOMContentLoaded', () => {
             displayTwo.textContent = "";
         });
 
+        function animacionClick() {
+
+            if (jugando) {
+                document.querySelector('#header-icon').classList.remove('fa-gear');
+                document.querySelector('#header-icon').classList.add('fa-crosshairs');
+
+            } else {
+                document.querySelector('#header-icon').classList.remove('fa-crosshairs');
+                document.querySelector('#header-icon').classList.add('fa-gear');
+            }
+
+        }
+
         iconBtnCont.addEventListener('click', () => {
 
             jugando = true;
+
+            // animación
+            animacionClick();
 
             if (firstClick === 0) {
 
@@ -40,12 +56,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 setInterval(() => {
                     const elapsedTime = updateTimer();
 
-                    if(jugando) {
-                        iconBtnCont.classList.add('cursor-wait');
-                        
+                    if (jugando) {
+                        iconBtnCont.classList.add('cursor-pointer');
+
                     } else {
-                        iconBtnCont.classList.remove('cursor-wait');
-                        
+                        iconBtnCont.classList.remove('cursor-pointer');
+                        animacionClick()
                     }
 
                     if (elapsedTime <= targetNum) {
@@ -57,7 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         displayTwo.textContent = '';
                     }
 
-                    // el -0.5 es para que el usuario vea la señal antes // >>>> Esto esta mal   
+                    // el -0.5 es para que el usuario vea la señal antes // >>>>
                     if (Math.abs((targetNum - elapsedTime) - 0.5) < tolerance) {
 
                         if (help) {
@@ -67,7 +83,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                         setTimeout(() => {
 
-                            // Lose
+                            // Lose!
                             // Pierde por tiempo
 
                             if (jugando) {
@@ -76,17 +92,19 @@ window.addEventListener('DOMContentLoaded', () => {
                             }
 
                             setTimeout(() => {
-                                reset();
+                                if (jugando) {
+                                    triggerPulse();
+                                    reset();
+                                }
                             }, 500);
                         }, 500);
                     }
                 }, 100);
 
-                return;
-
             } else {
 
                 jugando = false;
+                animacionClick()
 
                 const secondClick = new Date();
                 const secondClickInSecs = Math.floor(secondClick.getTime() / 1000).toFixed(2);
@@ -125,8 +143,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     triggerPulse(false);
                 }
 
-                firstClick = 0;
-                return;
             }
         });
 
@@ -144,6 +160,8 @@ window.addEventListener('DOMContentLoaded', () => {
             iconBtn.classList.remove('c-green');
             iconBtn.classList.remove('c-red');
             jugando = false;
+            animacionClick()
+            displayTwo.textContent = '';
         }
 
         function success() {
@@ -155,14 +173,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Nuevo número random entre 3 y 15
             targetNum = getRandomInt(3, 15);
-                    
-            if(localStorage.getItem('RECORD')) {
+
+            if (localStorage.getItem('RECORD')) {
                 let record = localStorage.getItem('RECORD');
 
                 const mensRecord = document.querySelector('#mens-record');
                 mensRecord.textContent = record;
 
-                if( victoriesAcu > record) {
+                if (victoriesAcu > record) {
                     // Nuevo record
                     record = victoriesAcu
                     mensRecord.textContent = record;

@@ -120,6 +120,7 @@ $iconTime: 3s;
     // &__icono-opts--visible {
     //     opacity: 1;
     // }
+
     &__contenedor-icono {
 
         height: fit-content;
@@ -129,9 +130,10 @@ $iconTime: 3s;
         border: 3px solid rgba(v.$dorado, .0);
         transition: all $iconTime ease;
 
-        background-color: rgba(v.$dorado, .3);
+
+        // background-color: rgba(v.$dorado, .3);
         border-radius: 50%;
-        cursor: pointer;
+
 
         &:hover {
 
@@ -143,24 +145,57 @@ $iconTime: 3s;
 
                 border: 1.5px solid v.$amarillo;
                 transform: scale(90%);
-                color: #BFBFBF;
+                // color: v.$rojo;
+                // text-shadow:
+                //     1px 1px 2px #000,
+                //     2px 2px 5px #b8b8b8,
+                //     -1px -1px 2px #000,
+                //     -2px -2px 5px #b8b8b8;
+                // color: rgb(122, 10, 10);
                 text-shadow:
                     1px 1px 2px #000,
-                    2px 2px 5px #b8b8b8,
+                    2px 2px 5px v.$amarillo,
                     -1px -1px 2px #000,
-                    -2px -2px 5px #b8b8b8;
+                    -2px -2px 5px v.$amarillo;
+                color: darken(v.$dorado, 39%);
+
+
+
+
+
+                
 
             }
         }
 
 
+        // &:active {
+        //     .header__icono {
+        //         color: white!important;
+        //     }
+        // }
 
+
+    }
+
+    &__contenedor-icono--action {
+        // background-color: black;
+
+        // animacion
+        .header__icono {
+            // box-shadow: 0 0 30px v.$dorado inset;
+            // border: 1.5px solid v.$dorado;
+            transition: color .1 ease, background-color .1 ease ;
+
+            background-color: v.$negro;
+            color: v.$negro;
+        }
 
     }
 
     &__icono-pulse-success {
 
-        transition: box-shadow 0s ease;
+
         animation: pulsoS 2s infinite;
         @keyframes pulsoS {
             0% {
@@ -175,7 +210,7 @@ $iconTime: 3s;
 
     &__icono-pulse-fail {
 
-        transition: box-shadow 0s ease;
+
         animation: pulso 2s infinite;
         @keyframes pulso {
             0% {
@@ -205,7 +240,7 @@ $iconTime: 3s;
         text-shadow: 0 0 0;
 
         transform: scale(80%);
-        transition: transform $iconTime ease, text-shadow $iconTime ease, border $iconTime ease;
+        transition: transform $iconTime ease, text-shadow $iconTime ease, border $iconTime ease, color $iconTime ease, background-color $iconTime ease;
 
     }
 }

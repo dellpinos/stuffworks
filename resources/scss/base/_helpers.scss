@@ -1,13 +1,22 @@
 @use 'variables' as v;
 
 .c-green {
-    color: v.$verdeClaro!important;
+    transition: color 1s ease!important;
+    color: darken(v.$verdeClaro, 20%)!important;
+
 }
 
 .c-red {
-    color: v.$rojo!important;
+    transition: color 1s ease!important;
+    color: darken(v.$rojo, 10%)!important;
 }
 
-.cursor-wait {
-    cursor: wait!important;
+.cursor-pointer {
+    cursor: pointer!important;
 }
+
+.flex {
+    display: flex;
+}
+
+

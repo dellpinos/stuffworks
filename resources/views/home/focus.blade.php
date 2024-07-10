@@ -10,7 +10,7 @@
 @section('main-content')
     <div class="focus__contenedor">
         <div class="focus__contenedor-heading">
-            <p class="focus__mens">Haz de este momento tu mejor trabajo. Si tienes la mente en blanco, presiona el botón <i class="focus__icono fa-solid fa-radiation" id="header-icon"></i>.</p>
+            <p class="focus__mens">Haz de este momento tu mejor trabajo. Si tienes la mente en blanco, presiona el botón <i class="focus__icono fa-solid fa-gear" id="header-icon"></i>.</p>
             <h1 id="focus-hora">&lt/ Ideas? ></h1>
 
             <div class="focus__contenedor-fechas">

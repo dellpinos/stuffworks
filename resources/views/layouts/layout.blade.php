@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @yield('meta')
-    <title>@yield('titulo')</title>
+    <title>MdP - @yield('titulo')</title>
     <meta name="description" content="Portfolio Martin del Pino">
-    <link rel="icon" href="{{ asset('img/radiation_icon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('img/fav_6.png') }}" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,6 @@
 
                 <div class="header__grid-icono">
                     <div class="header__contenedor-icono" id="header-icon-container">
-                        {{-- <i class="header__icono fa-solid fa-radiation" id="header-icon"></i> --}}
                         <i class="header__icono fa-solid fa-gear" id="header-icon"></i>
                     </div>
                     <div class="header__icono-opts" id="header-icono-opts">
