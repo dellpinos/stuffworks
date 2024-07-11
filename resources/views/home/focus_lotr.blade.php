@@ -4,7 +4,7 @@
 @endsection
 
 @section('titulo')
-    Focus Mode
+    Focus Ring
 @endsection
 
 @section('main-content')
@@ -12,41 +12,18 @@
 
         <img class="focus-lotr__ring" src="{{ asset('img/ring.svg') }}" alt="Anillo unico">
 
-
         <div class="focus-lotr__up">
-
 
             <div class="focus-lotr__up-tasks">
                 {{-- Elemento Visible --}}
-                <h4>Notas:</h4>
-                <form action="#">
-                    <input type="text" name="" id="" placeholder=">_" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                    <input type="text" name="" id="" placeholder=">" value=">_">
-                </form>
+                <div>
+                    <h4>Notas temporales e ideas para el proyecto actual:</h4>
+                    <form action="#" id="focus-lotr-tasks">
+                        {{-- Js --}}
+                    </form>
+                </div>
+
+                <p>One day all of those late nights and early mornings will pay off</p>
             </div>
             <div class="focus-lotr__up-hour">
                 {{-- Elemento Visible --}}
@@ -66,7 +43,7 @@
                             <p>:</p>
                             <input type="text" placeholder="00" id="focus-ring-crono-mins">
                         </div>
-                        <button id="focus-ring-crono-btn"><i class="fa-regular fa-circle-play"></i></button>
+                        <button class="focus-lotr__btn-op" id="focus-ring-crono-btn"><i class="fa-regular fa-circle-play"></i></button>
                     </form>
                 </div>
             </div>
@@ -82,17 +59,17 @@
 
                 {{-- Elemento Visible --}}
                 <div class="focus-lotr__links-grid">
-                    <a href="https://trello.com/" target="_blank"><i class="fa-brands fa-trello"></i></a>
-                    <a href="https://es.lipsum.com/" target="_blank"><i class="fa-solid fa-align-left"></i></a>
-                    <a href="https://fonts.google.com/" target="_blank"><i class="fa-solid fa-font"></i></a>
-                    <a href="https://www.svgrepo.com/" target="_blank"><i
+                    <a href="https://trello.com/" target="_blank" id="focus-lotr-link-trello"><i class="fa-brands fa-trello"></i></a>
+                    <a href="https://es.lipsum.com/" target="_blank" id="focus-lotr-link-lorem"><i class="fa-solid fa-align-left"></i></a>
+                    <a href="https://fonts.google.com/" target="_blank" id="focus-lotr-link-fonts"><i class="fa-solid fa-font"></i></a>
+                    <a href="https://www.svgrepo.com/" target="_blank" id="focus-lotr-link-svgpro"><i
                             class="fa-solid fa-triangle-exclamation"></i></a>
-                    <a href="https://fontawesome.com/search" target="_blank"><i class="fa-solid fa-icons"></i></a>
-                    <a href="https://resizeimage.net/" target="_blank"><i class="fa-solid fa-image"></i></a>
-                    <a href="https://randomcolour.com/" target="_blank"><i class="fa-solid fa-droplet"></i></a>
-                    <a href="https://paletadecolores.online/" target="_blank"><i
+                    <a href="https://fontawesome.com/search" target="_blank" id="focus-lotr-link-icons"><i class="fa-solid fa-icons"></i></a>
+                    <a href="https://resizeimage.net/" target="_blank" id="focus-lotr-link-resize"><i class="fa-solid fa-image"></i></a>
+                    <a href="https://randomcolour.com/" target="_blank" id="focus-lotr-link-random"><i class="fa-solid fa-droplet"></i></a>
+                    <a href="https://paletadecolores.online/" target="_blank" id="focus-lotr-link-pallette"><i
                             class="fa-solid fa-paint-roller"></i></a>
-                    <a href="https://color.adobe.com/es/create/color-wheel" target="_blank"><i
+                    <a href="https://color.adobe.com/es/create/color-wheel" target="_blank" id="focus-lotr-link-wheel"><i
                             class="fa-solid fa-palette"></i></a>
                 </div>
             </div>

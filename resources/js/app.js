@@ -9,3 +9,5 @@ import './app_toCamel';
 import './app_wordflip';
 import './app_headerClickMe';
 import './app_focusLotr';
+import './app_tooltips';
+import './app_sweetAlert';

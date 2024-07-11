@@ -4,6 +4,8 @@ window.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('#focus-lotr-hora')) {
         main();
         crono();
+        tasks();
+        
 
     }
 
@@ -30,6 +32,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // }
 
+    function tasks() {
+
+        const taskCont = document.querySelector('#focus-lotr-tasks');
+
+        for(let i = 0; i < 25; i++) {
+            
+            const input = document.createElement('INPUT');
+            input.type = 'text';
+            input.placeholder = '>_';
+
+            taskCont.appendChild(input);
+        }
+    }
+
     function crono() {
 
         const hs = document.querySelector('#focus-ring-crono-hs');
@@ -37,14 +53,21 @@ window.addEventListener('DOMContentLoaded', () => {
         const btn = document.querySelector('#focus-ring-crono-btn');
         const pauseBtn = document.querySelector('#focus-ring-crono-pause');
         const resetBtn = document.querySelector('#focus-ring-crono-reset');
-        let flagActivo = false; // flag "activo"
-        let flagPause = false;  // flag "pause"
+        const playBtn = document.querySelector('#focus-ring-crono-btn');
+
         let intervalId; // me permite reiniciar el interval
 
+        // Flags
+        let flagActivo = false; // cronometro "activo"
+        let flagPause = false;  // cronometro pausado
+        let playVisible = true; // visibilidad del btn play
+
+        // Tiempo del cronometro
         let hsCrono = 0;
         let minsCrono = 0;
         let total = 0;
 
+        // Crono Regex
         const regexMins = /^(?:[1-5]?[0-9]|60)$/; // 0-60 números positivos
         const regexHs = /^(?:[0]?[0-7]|7)$/; // 0-7 números positivos
 
@@ -52,12 +75,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (!flagActivo) {
 
-                let tempHs = 0;
-                if (regexHs.test(e.target.value)) {
-                    tempHs = e.target.value;
-                    e.target.value = tempHs;
+                let value = e.target.value;
+
+                // Filtrar caracteres no permitidos
+                if (regexHs.test(value)) {
+                    // El valor es válido según la regex
+                    e.target.value = value;
                 } else {
-                    e.target.value = tempHs;
+                    // El valor no es válido, eliminar el último carácter ingresado
+                    e.target.value = value.slice(0, -1);
+                }
+    
+                if (value !== '') {
+                    playBtn.classList.remove('focus-lotr__btn-op');
+                } else {
+                    playBtn.classList.add('focus-lotr__btn-op');
                 }
             }
         });
@@ -65,20 +97,29 @@ window.addEventListener('DOMContentLoaded', () => {
         mins.addEventListener('input', (e) => {
 
             if (!flagActivo) {
-                let tempMins = 0;
-                if (regexMins.test(e.target.value)) {
-                    tempMins = e.target.value;
-                    e.target.value = tempMins;
+
+                let value = e.target.value;
+
+                // Filtrar caracteres no permitidos
+                if (regexMins.test(value)) {
+                    // El valor es válido según la regex
+                    e.target.value = value;
                 } else {
-                    e.target.value = tempMins;
+                    // El valor no es válido, eliminar el último carácter ingresado
+                    e.target.value = value.slice(0, -1);
+                }
+    
+                if (value !== '') {
+                    playBtn.classList.remove('focus-lotr__btn-op');
+                } else {
+                    playBtn.classList.add('focus-lotr__btn-op');
                 }
             }
         });
 
-
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            if (hs.value !== '' || mins.value !== '') {
+            if ((hs.value !== '' || mins.value !== '') & !flagActivo) {
 
                 mins.disabled = true;
                 hs.disabled = true;
@@ -102,6 +143,10 @@ window.addEventListener('DOMContentLoaded', () => {
                             mins.value = tempMins;
                         } else {
                             resetCrono();
+                            playBtn.classList.add('focus-lotr__btn-op');
+                            // Termina el cronometro, animación aqui!
+
+
                         }
                     }
                 }, 1000); // 1 min 6000
@@ -143,7 +188,7 @@ window.addEventListener('DOMContentLoaded', () => {
             minsCrono = 0;
             total = 0;
             pauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
-            if(intervalId) clearInterval(intervalId);
+            if (intervalId) clearInterval(intervalId);
             hideBtns();
         }
 
@@ -151,7 +196,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Cambia la visibilidad de los botones
             const contBtns = document.querySelector('#focus-ring-crono-btns');
-            const playBtn = document.querySelector('#focus-ring-crono-btn');
+            
+
+            // Mostrar opts y ocultar play
             if (flagActivo) {
                 contBtns.classList.remove('focus-lotr__btns');
                 playBtn.classList.add('focus-lotr__btn-op');
