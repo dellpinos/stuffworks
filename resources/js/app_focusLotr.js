@@ -1,3 +1,4 @@
+import Swal from './app_sweetAlert';
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -5,42 +6,71 @@ window.addEventListener('DOMContentLoaded', () => {
         main();
         crono();
         tasks();
-        
+        sounds();
+
 
     }
 
+    function sounds() {
+
+        console.log('FOX!');
 
 
-    // function randomWiki() {
+        const btn1 = document.querySelector('#focus-lotr-sound-1');
+        // const btn2 = document.querySelector('#focus-lotr-sound-2');
+        // const btn3 = document.querySelector('#focus-lotr-sound-3');
+        // const btn4 = document.querySelector('#focus-lotr-sound-4');
 
-    //     fetch('https://en.wikipedia.org/w/api.php?action=query&list=random&rnlimit=1&format=json&origin=*')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             const page = data.query.random[0];
-    //             const pageTitle = page.title;
-    //             const pageId = page.id;
-    //             const pageUrl = `https://en.wikipedia.org/?curid=${pageId}`;
+        const windSound = new Audio('audio/wind.mp3');
+        // const forestSound = new Audio('audio/forest-sound.mp3');
 
-    //             console.log(`Title: ${pageTitle}`);
-    //             console.log(`URL: ${pageUrl}`);
+        // Set the loop property to true
+        windSound.loop = true;
+        // forestSound.loop = true;
 
-    //             const article = document.querySelector('#focus-lotr-article');
-    //             article.href = pageUrl;
-    //             article.textContent = pageTitle;
-    //         })
-    //         .catch(error => console.error('Error:', error));
 
-    // }
+
+        btn1.addEventListener('click', () => {
+            playSong(windSound);
+        })
+
+
+
+        function playSong(song) {
+            // Pause any sound currently playing
+            windSound.pause();
+            // forestSound.pause();
+            // Reset the currentTime to start from the beginning
+            windSound.currentTime = 0;
+            // forestSound.currentTime = 0;
+
+            // Play the selected sound
+            song.play();
+        }
+
+    }
 
     function tasks() {
 
         const taskCont = document.querySelector('#focus-lotr-tasks');
 
-        for(let i = 0; i < 25; i++) {
-            
+        for (let i = 0; i < 25; i++) {
+
             const input = document.createElement('INPUT');
             input.type = 'text';
             input.placeholder = '>_';
+            input.id = `focus-ring-input-${i}`;
+            input.value = `>_ ${input.value}`;
+
+            // Cargar desde localStorage si existe
+            const valueLS = localStorage.getItem(`focus-ring-input-${i}`);
+            if (valueLS) {
+                input.value = valueLS;
+            }
+            // Almacenar en LS
+            input.addEventListener('input', (e) => {
+                localStorage.setItem(e.target.id, e.target.value);
+            });
 
             taskCont.appendChild(input);
         }
@@ -85,7 +115,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     // El valor no es válido, eliminar el último carácter ingresado
                     e.target.value = value.slice(0, -1);
                 }
-    
+
                 if (value !== '') {
                     playBtn.classList.remove('focus-lotr__btn-op');
                 } else {
@@ -108,7 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     // El valor no es válido, eliminar el último carácter ingresado
                     e.target.value = value.slice(0, -1);
                 }
-    
+
                 if (value !== '') {
                     playBtn.classList.remove('focus-lotr__btn-op');
                 } else {
@@ -145,6 +175,8 @@ window.addEventListener('DOMContentLoaded', () => {
                             resetCrono();
                             playBtn.classList.add('focus-lotr__btn-op');
                             // Termina el cronometro, animación aqui!
+                            sweetAlert();
+
 
 
                         }
@@ -177,6 +209,16 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        function sweetAlert() {
+
+            Swal.fire({
+                title: 'Tiempo cumplido!',
+                text: 'Deberias descansar un poco, podés seguir en otro momento.',
+                icon: 'success',
+                confirmButtonText: 'Thanks!',
+            })
+        }
+
         function resetCrono() {
             hs.value = '';
             mins.value = '';
@@ -196,7 +238,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Cambia la visibilidad de los botones
             const contBtns = document.querySelector('#focus-ring-crono-btns');
-            
+
 
             // Mostrar opts y ocultar play
             if (flagActivo) {

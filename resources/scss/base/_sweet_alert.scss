@@ -1,0 +1,18 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.swal2-popup {
+    font-size: 1.4rem;
+    border: 1px solid v.$dorado;
+    background-color: v.$DMgrisOscuro;
+    color: v.$dorado;
+    padding: 3rem;
+    box-shadow: 0 0 10px v.$dorado inset;
+    width: 50rem;
+}
+
+.swal2-confirm {
+    font-size: 2rem;
+    font-weight: v.$bold;
+    background-color: v.$dorado;
+}

@@ -17,7 +17,7 @@
             <div class="focus-lotr__up-tasks">
                 {{-- Elemento Visible --}}
                 <div>
-                    <h4>Notas temporales e ideas para el proyecto actual:</h4>
+                    <h4>Notas temporales e ideas para el proyecto actual (son almacenadas en el navegador):</h4>
                     <form action="#" id="focus-lotr-tasks">
                         {{-- Js --}}
                     </form>
@@ -48,15 +48,7 @@
                 </div>
             </div>
 
-
-            {{-- Elemento Visible --}}
-            {{-- <a class="focus-lotr__up-article" href="" id="focus-lotr-article" target="_blank">
-            </a> --}}
-
-            {{-- <iframe src="http://www.staggeringbeauty.com/" class="focus-lotr__beauty" style="height: 100%; width: 100%;"></iframe> --}}
-
             <div class="focus-lotr__links">
-
                 {{-- Elemento Visible --}}
                 <div class="focus-lotr__links-grid">
                     <a href="https://trello.com/" target="_blank" id="focus-lotr-link-trello"><i class="fa-brands fa-trello"></i></a>
@@ -74,6 +66,16 @@
                 </div>
             </div>
 
+            <div class="focus-lotr__sounds">
+                {{-- Elemento Visible --}}
+                <div class="focus-lotr__sounds-grid">
+                    <button id="focus-lotr-sound-1"><i class="fa-solid fa-wind"></i></button>
+                    {{-- <button id="focus-lotr-sound-2"><i class="fa-solid fa-align-left"></i></button>
+                    <button id="focus-lotr-sound-3"><i class="fa-solid fa-font"></i></button>
+                    <button id="focus-lotr-sound-4"><i
+                            class="fa-solid fa-triangle-exclamation"></i></button> --}}
+                </div>
+            </div>
 
         </div>
 
