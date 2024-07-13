@@ -30,9 +30,11 @@
             <img src="{{ asset('img/codewars.svg')}}" alt="Icono Codewars">
             <p>CodeWars</p>
         </a>
+        <a href="https://www.youtube.com/@martindelpino1395" target="blank">
+            <img src="{{ asset('img/youtube.svg')}}" alt="Icono Youtube">
+            <p>Youtube</p>
+        </a>
     </div>
-
-
 </div>
 
 

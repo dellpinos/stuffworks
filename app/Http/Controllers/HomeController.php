@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -14,37 +15,43 @@ class HomeController extends Controller
 
     public function focus()
     {
-        // API Consultar frase
+        // API consultar quote
         $url = "https://api.quotable.io/random";
 
-        $respuesta = Http::get($url);
+        try {
+            // Tiempo de respuesta máximo de 3 segs
+            $respuesta = Http::timeout(3)->get($url);
 
-        if ($respuesta->successful()) {
-            $quote = $respuesta->json();
+            if ($respuesta->successful()) {
+                $quote = $respuesta->json();
+
+                return view('home.focus', [
+                    'quote' => $quote
+
+                ]);
+            } else {
+                // En caso de que la API no responda exitosamtente
+                $quote = [
+                    "author" => "Anonymous",
+                    "content" => "Reputation is what other people know about you. Character is what you know about yourself."
+                ];
+                return view('home.focus', [
+                    'quote' => $quote
+                ]);
+            }
+        } catch (Exception $e) {
+            // En caso de que la API no responda o se exceda el tiempo de respuesta
+            $quote = [
+                "author" => "Anonymous",
+                "content" => "Reputation is what other people know about you. Character is what you know about yourself."
+            ];
             return view('home.focus', [
                 'quote' => $quote
             ]);
-        } else {
-            return response()->json(['error' => 'Unable to fetch data'], 500);
         }
     }
-
     public function focus_lotr()
     {
-        // // API Consultar frase
-        // $url = "https://api.quotable.io/random";
-
-        // $respuesta = Http::get($url);
-
-        // if ($respuesta->successful()) {
-        //     $quote = $respuesta->json();
-        //     return view('home.focus', [
-        //         'quote' => $quote
-        //     ]);
-        // } else {
-        //     return response()->json(['error' => 'Unable to fetch data'], 500);
-        // }
-
         return view('home.focus_lotr');
     }
 

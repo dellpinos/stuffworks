@@ -14,7 +14,7 @@ console.log(respuesta);
 function ejemplo(array) {
 
     if(!array.lenght){
-        return 'vacio! esto proviene de app_orden que aún no tiene una página';
+        return 'vacio! esto proviene del script app_orden que aún no tiene una página';
     } else {
 
         let minimo = array[0];

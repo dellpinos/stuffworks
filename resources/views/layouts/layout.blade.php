@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @yield('meta')
-    <title>@yield('titulo')</title>
+    <title>MdP - @yield('titulo')</title>
     <meta name="description" content="Portfolio Martin del Pino">
-    <link rel="icon" href="{{ asset('img/radiation_icon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('img/fav_6.png') }}" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,14 +21,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="relative">
     <div class="header__grid">
         <header class="header">
             <div class="header__contenedor">
 
                 <div class="header__grid-icono">
                     <div class="header__contenedor-icono" id="header-icon-container">
-                        {{-- <i class="header__icono fa-solid fa-radiation" id="header-icon"></i> --}}
                         <i class="header__icono fa-solid fa-gear" id="header-icon"></i>
                     </div>
                     <div class="header__icono-opts" id="header-icono-opts">
@@ -63,19 +62,26 @@
 
     </div>
 
+    {{-- Parche hasta que sea implementado un diseño responsive --}}
+    <div id="warning-responsive-message">
+        Este sitio aún no es compatible con pantallas pequeñas. Por favor, ábrelo en una pantalla más grande.
+    </div>
+    {{-- Parche hasta que sea implementado un diseño responsive --}}
+
     @yield('contenido')
+
+    <a href="#footer" class="scroll scroll--oculto" id="scroll-arrow" ><i class="fa-solid fa-down-long"></i></a>
 
     <div class="@if (request()->routeIs('scripts.likes')) footer__enlace--activo @endif">
 
-    <footer class="footer__contenedor">
+    <footer class="footer__contenedor" id="footer">
         <div class="footer__grid">
             <a href="{{ route('home.apps') }}" class="@if (request()->routeIs('home.apps')) footer__enlace--activo @endif">Apps Online</a>
             <a href="{{ route('home.little_apps') }}" class="@if (request()->routeIs('home.little_apps')) footer__enlace--activo @endif">Little Apps</a>
             <a href="{{ route('scripts.index') }}" class="@if (request()->routeIs('scripts.index')) footer__enlace--activo @endif">Challenges</a>
             <a href="{{ route('home.focus') }}" class="@if (request()->routeIs('home.focus')) footer__enlace--activo @endif">Focus Page</a>
-            <a href="{{ route('home.focus_lotr') }}" class="@if (request()->routeIs('home.focus')) footer__enlace--activo @endif">Focus Ring</a>
+            <a href="{{ route('home.focus_lotr') }}" class="@if (request()->routeIs('home.focus_lotr')) footer__enlace--activo @endif">Focus Ring</a>
             <a href="{{ route('home.contact') }}" class="@if (request()->routeIs('home.contact')) footer__enlace--activo @endif">Contact</a>
-            {{-- <a href="https://www.linkedin.com/in/martin-del-pino/" target="_blank">LinkedIn</a> --}}
         </div>
         <a class="footer__nombre" href="https://dellpinos.com/" target="_blank"><span>Martín del Pino</span> - &copy;
             Todos los derechos reservados {{ now()->year }}</a>
