@@ -1,7 +1,7 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
-$iconTime: 3s;
+$iconTime: 3s; // animaciones de botón clickMe
 
 .header {
     height: 19rem;
@@ -10,6 +10,8 @@ $iconTime: 3s;
     background-color: v.$DMgrisOscuro;
     padding: 3rem;
     border-bottom: 1px solid v.$amarillo;
+
+
 
     &__grid {}
 
@@ -84,7 +86,14 @@ $iconTime: 3s;
         flex-direction: column;
         justify-content: center;
         height: 100%;
+        text-shadow: 0 0 4px v.$dorado;
 
+        transition: text-shadow .7s ease;
+
+        &:hover {
+
+            text-shadow: 0 0 10px v.$dorado;
+        }
     }
 
     &__grid-icono {

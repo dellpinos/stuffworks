@@ -1,41 +1,48 @@
 @use '../base/mixins' as m;
 @use '../base/variables' as v;
 
+
+@keyframes parpadeo {
+    0% {
+        box-shadow: 0 0 5px v.$blanco,
+        0 0 5px v.$blanco inset;
+        opacity: .4;
+    }
+    50% {
+        box-shadow: none;
+        opacity: 0;
+    }
+    100% {
+        box-shadow: 0 0 5px v.$blanco,
+        0 0 5px v.$blanco inset;
+        opacity: .4;
+    }
+}
 .scroll {
 
     position: fixed;
     bottom: 5rem;
     right: 5rem;
 
-    width: 7rem;
-    height: 7rem;
+    width: 5rem;
+    height: 5rem;
     z-index: 3;
     color: v.$blanco;
     background-color: v.$negro;
-    padding: 1.5rem;
-    border: .5px solid v.$amarillo;
-    font-size: 3.5rem;
+    padding: 1rem;
+    border: .5px solid v.$blanco;
+    font-size: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 10px v.$blanco,
         0 0 10px v.$blanco inset;
 
-    transition: all .5s ease;
+    transition: all .2s ease;
+    animation: parpadeo 4s infinite;
 
     &--oculto {
-        opacity: 0;
+        opacity: 0!important;
     }
-    // &:hover {
-    //     border: .5px solid v.$blanco;
-    //     color: v.$blanco;
-    //     box-shadow: none;
-    //     cursor: pointer;
-    // }
 
-    // &--activo {
-    //     border: .5px solid v.$blanco;
-    //     color: v.$blanco;
-    //     box-shadow: none;
-    // }
 }

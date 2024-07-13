@@ -62,13 +62,19 @@
 
     </div>
 
+    {{-- Parche hasta que sea implementado un diseño responsive --}}
+    <div id="warning-responsive-message">
+        Este sitio aún no es compatible con pantallas pequeñas. Por favor, ábrelo en una pantalla más grande.
+    </div>
+    {{-- Parche hasta que sea implementado un diseño responsive --}}
+
     @yield('contenido')
 
-    <button class="scroll scroll-oculto" id="scroll-arrow" ><i class="fa-solid fa-down-long"></i></button>
+    <a href="#footer" class="scroll scroll--oculto" id="scroll-arrow" ><i class="fa-solid fa-down-long"></i></a>
 
     <div class="@if (request()->routeIs('scripts.likes')) footer__enlace--activo @endif">
 
-    <footer class="footer__contenedor">
+    <footer class="footer__contenedor" id="footer">
         <div class="footer__grid">
             <a href="{{ route('home.apps') }}" class="@if (request()->routeIs('home.apps')) footer__enlace--activo @endif">Apps Online</a>
             <a href="{{ route('home.little_apps') }}" class="@if (request()->routeIs('home.little_apps')) footer__enlace--activo @endif">Little Apps</a>
@@ -76,7 +82,6 @@
             <a href="{{ route('home.focus') }}" class="@if (request()->routeIs('home.focus')) footer__enlace--activo @endif">Focus Page</a>
             <a href="{{ route('home.focus_lotr') }}" class="@if (request()->routeIs('home.focus_lotr')) footer__enlace--activo @endif">Focus Ring</a>
             <a href="{{ route('home.contact') }}" class="@if (request()->routeIs('home.contact')) footer__enlace--activo @endif">Contact</a>
-            {{-- <a href="https://www.linkedin.com/in/martin-del-pino/" target="_blank">LinkedIn</a> --}}
         </div>
         <a class="footer__nombre" href="https://dellpinos.com/" target="_blank"><span>Martín del Pino</span> - &copy;
             Todos los derechos reservados {{ now()->year }}</a>

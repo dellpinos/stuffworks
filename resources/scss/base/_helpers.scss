@@ -1,18 +1,18 @@
 @use 'variables' as v;
 
 .c-green {
-    transition: color 1s ease!important;
-    color: darken(v.$verdeClaro, 20%)!important;
+    transition: color 1s ease !important;
+    color: darken(v.$verdeClaro, 20%) !important;
 
 }
 
 .c-red {
-    transition: color 1s ease!important;
-    color: darken(v.$rojo, 10%)!important;
+    transition: color 1s ease !important;
+    color: darken(v.$rojo, 10%) !important;
 }
 
 .cursor-pointer {
-    cursor: pointer!important;
+    cursor: pointer !important;
 }
 
 .flex {
@@ -24,4 +24,25 @@
 }
 
 
+// Parche hasta que sea implementado un diseño responsive
 
+/* Estilos para el mensaje de advertencia */
+#warning-responsive-message {
+    display: none;
+    /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .95);
+    /* Fondo oscuro semi-transparente */
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 20%;
+    z-index: 9999;
+    /* Asegura que esté por encima de otros elementos */
+}
+
+// Parche hasta que sea implementado un diseño responsive

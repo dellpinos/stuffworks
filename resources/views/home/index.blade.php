@@ -26,14 +26,14 @@
                 <img src="{{ asset('img/ring_black.svg') }}" alt="Focus Ring">
                 <p>Focus Ring</p>
             </a>
-            <a href="{{ route('home.focus') }}" class="inicio__enlace">
+            {{-- <a href="{{ route('home.focus') }}" class="inicio__enlace">
                 <img src="{{ asset('img/eye-monster.svg') }}" alt="Focus">
                 <p>Focus Page</p>
             </a>
             <a href="{{ route('home.contact') }}" class="inicio__enlace">
                 <img src="{{ asset('img/ufo.svg') }}" alt="Contact">
                 <p>Contact</p>
-            </a>
+            </a> --}}
         </div>
     </div>
 @endsection

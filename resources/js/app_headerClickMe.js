@@ -1,47 +1,89 @@
+import Swal from './app_sweetAlert';
 
 window.addEventListener('DOMContentLoaded', () => {
 
     if (document.querySelector('#header-icon-container')) {
 
         button();
-        arrowScroll();
+        infoCookies();
+
+        setTimeout(() => {
+            arrowScroll();
+        }, 3000);
+
+        // Parche hasta que sea implementado un diseño responsive
+
+        (() => {
+            function checkScreenSize() {
+                if (window.innerWidth < 1200) { // Ajusta este valor según tus necesidades
+                    document.getElementById('warning-responsive-message').style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Evita que la página se desplace
+                } else {
+                    document.getElementById('warning-responsive-message').style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Permite el desplazamiento de nuevo
+                }
+            }
+    
+            // Verifica el tamaño de la pantalla al cargar la página
+            window.onload = checkScreenSize;
+    
+            // Verifica el tamaño de la pantalla cada vez que se redimensiona la ventana
+            window.onresize = checkScreenSize;
+
+        })();
+
+        // Parche hasta que sea implementado un diseño responsive
+
+
+        function infoCookies() {
+
+            let flagAlerta = true;
+            // Cargar desde localStorage si existe
+            const valueLS = localStorage.getItem('info-cookies');
+            if (valueLS) {
+                flagAlerta = JSON.parse(valueLS);
+            }
+            // Leer de LS
+            if (flagAlerta) {
+                sweetAlert('info');
+            }
+        }
+        function sweetAlert() {
+
+            Swal.fire({
+                title: "Info",
+                text: 'Este sitio almacena tus prefernecias en tu navegador. No volveré a mostrarte este cartel.',
+                showDenyButton: false,
+                icon: 'question',
+                confirmButtonText: "Ok",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.setItem('info-cookies', false);
+                }
+            });
+
+        }
 
         function arrowScroll() {
 
             const btn = document.querySelector('#scroll-arrow');
             const footer = document.querySelector('FOOTER');
+            let flag = false;
 
+            window.addEventListener('scroll', function () {
 
-            window.addEventListener('scroll', function() {
                 const footerPosition = footer.getBoundingClientRect();
-    
-                if (footerPosition.top <= window.innerHeight && footerPosition.bottom >= 0) {
-                    console.log('El footer es visible');
-                    // Ejecutar el código deseado
 
-                    // alert('¡El footer es visible!');
-                    // Si solo quieres que se ejecute una vez, puedes remover el event listener
-
-                    btn.classList.add('scroll--oculto');
-                } else {
-                    setInterval(() => {
-
-                        btn.classList.toggle('scroll--oculto');
-                        
-                    }, 2000);
-
+                if (!flag) {
+                    if (footerPosition.top <= window.innerHeight && footerPosition.bottom >= 0) {
+                        btn.classList.add('scroll--oculto');
+                        flag = true;
+                    } else {
+                        btn.classList.remove('scroll--oculto');
+                    }
                 }
             });
-
-
-
-
-
         }
-
-
-
-
 
         function button() {
             const iconBtnCont = document.querySelector('#header-icon-container');

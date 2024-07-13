@@ -4,8 +4,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (document.querySelector('#focus-lotr-hora')) {
         actualDate();
+        info();
         crono();
         tasks();
+    }
+
+    function info() {
+
+        let flagAlerta = true;
+        // Cargar desde localStorage si existe
+        const valueLS = localStorage.getItem('info-alert');
+        if (valueLS) {
+            flagAlerta = JSON.parse(valueLS);
+        }
+        // Leer de LS
+        if (flagAlerta) {
+            sweetAlert('info');
+        }
     }
 
     function tasks() {
@@ -83,8 +98,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 // Filtrar caracteres no permitidos
                 if (regexHs.test(value)) {
-                    // El valor es válido según la regex
-                    e.target.value = value;
+                    if (value.length === 1) {
+                        // El valor es válido según la regex
+                        e.target.value = `0${value}`;
+                    } else {
+                        // El valor es válido según la regex
+                        e.target.value = value;
+                    }
                 } else {
                     // El valor no es válido, eliminar el último carácter ingresado
                     e.target.value = value.slice(0, -1);
@@ -105,8 +125,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 // Filtrar caracteres no permitidos
                 if (regexMins.test(value)) {
-                    // El valor es válido según la regex
-                    e.target.value = value;
+                    if (value.length === 1) {
+                        // El valor es válido según la regex
+                        e.target.value = `0${value}`;
+                    } else {
+                        // El valor es válido según la regex
+                        e.target.value = value;
+                    }
                 } else {
                     // El valor no es válido, eliminar el último carácter ingresado
                     e.target.value = value.slice(0, -1);
@@ -147,16 +172,27 @@ window.addEventListener('DOMContentLoaded', () => {
                             const tempHs = Math.floor(total / 60);
                             const tempMins = total - (tempHs * 60);
 
-                            hs.value = tempHs;
-                            mins.value = tempMins;
+                            if (tempHs < 10) {
+                                // Agrega un 0 cuando el número tiene un solo caracter
+                                hs.value = `0${tempHs}`;
+                            } else {
+                                hs.value = tempHs;
+                            }
+                            if (tempMins < 10) {
+                                // Agrega un 0 cuando el número tiene un solo caracter
+                                mins.value = `0${tempMins}`;
+                            } else {
+                                mins.value = tempMins;
+                            }
                         } else {
                             resetCrono();
                             playBtn.classList.add('focus-lotr__btn-op');
                             // Termina el cronometro, animación aqui!
-                            sweetAlert();
+                            sweetAlert('success');
                         }
                     }
-                }, 1000); // 1 min 6000
+                    }, 60000); // 1 min 60000    
+                // }, 1000); // Puedo acelerar el temporizador para hacer pruebas
             }
         });
 
@@ -213,7 +249,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     // Limpiar estilo seleccionado cada vez que hay un click
                     btnActivo.classList.remove('focus-lotr__sound-btn--activo');
                 });
-                
+
                 // Cambiar estilo a seleccionado
                 btn.classList.add('focus-lotr__sound-btn--activo');
                 // LS
@@ -223,7 +259,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     soundInstance.pause();
                     soundInstance = playSound(actualSound);
 
-                    if(!flagPause & !flagMute) {
+                    if (!flagPause & !flagMute) {
                         soundInstance.play();
                     }
                 }
@@ -251,8 +287,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 actualSound = soundLS;
                 soundBtns.forEach((btnActivo) => {
                     // Limpiar estilo seleccionado cada vez que hay un click
-                    if( btnActivo.value === soundLS) {
-                        
+                    if (btnActivo.value === soundLS) {
+
                         btnActivo.classList.add('focus-lotr__sound-btn--activo');
                     }
                 });
@@ -260,8 +296,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 soundBtns.forEach((btnActivo) => {
                     // Limpiar estilo seleccionado cada vez que hay un click
-                    if( btnActivo.value === actualSound) {
-                        
+                    if (btnActivo.value === actualSound) {
+
                         btnActivo.classList.add('focus-lotr__sound-btn--activo');
                     }
                 });
@@ -269,16 +305,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             // Cambiar estilos del track
 
-        }
-
-        function sweetAlert() {
-
-            Swal.fire({
-                title: 'Tiempo cumplido!',
-                text: 'Deberias descansar un poco, podés seguir en otro momento.',
-                icon: 'success',
-                confirmButtonText: 'Thanks!',
-            })
         }
 
         function resetCrono() {
@@ -319,7 +345,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const localSoundInstance = new Audio(`audio/${sound}.mp3`);
 
             // Parche para sonidos demasiado altos (baja el volumen para reproducirlo)
-            if(sound === 'white_noise') { // El mismo nombre que el archivo y el value del boton
+            if (sound === 'white_noise') { // El mismo nombre que el archivo y el value del boton
                 localSoundInstance.volume = .4;
             }
 
@@ -334,6 +360,33 @@ window.addEventListener('DOMContentLoaded', () => {
 
             return localSoundInstance;
         }
+    }
+
+    function sweetAlert(flag) {
+
+        if (flag === 'success') {
+            Swal.fire({
+                title: 'Tiempo cumplido!',
+                text: 'Deberias descansar un poco, podés seguir en otro momento.',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+            })
+        } else if (flag === 'info') {
+            Swal.fire({
+                title: "Info",
+                text: 'Esta página te permite escoger un tiempo de "concentración" menor a 7 horas. También puedes cambiar el sonido de fondo y dispones de diferentes enlaces y un espacio para tus notas.',
+                showDenyButton: true,
+                icon: 'question',
+                confirmButtonText: "Ok",
+                denyButtonText: `No volver a mostrar`
+            }).then((result) => {
+                if (result.isDenied) {
+                    // Swal.fire("Changes are not saved", "", "info");
+                    localStorage.setItem('info-alert', false);
+                }
+            });
+        }
+
     }
     function actualDate() {
 
