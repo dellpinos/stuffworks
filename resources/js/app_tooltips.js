@@ -60,4 +60,10 @@ tippy('#focus-lotr-link-wheel', {
     animation: 'scale-subtle',
     delay: [100, 0]
 });
+tippy('#focus-lotr-link-music', {
+    placement: 'bottom',
+    content: 'Music & Sounds',
+    animation: 'scale-subtle',
+    delay: [100, 0]
+});
 

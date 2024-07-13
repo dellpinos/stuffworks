@@ -3,51 +3,9 @@ import Swal from './app_sweetAlert';
 window.addEventListener('DOMContentLoaded', () => {
 
     if (document.querySelector('#focus-lotr-hora')) {
-        main();
+        actualDate();
         crono();
         tasks();
-        sounds();
-
-
-    }
-
-    function sounds() {
-
-        console.log('FOX!');
-
-
-        const btn1 = document.querySelector('#focus-lotr-sound-1');
-        // const btn2 = document.querySelector('#focus-lotr-sound-2');
-        // const btn3 = document.querySelector('#focus-lotr-sound-3');
-        // const btn4 = document.querySelector('#focus-lotr-sound-4');
-
-        const windSound = new Audio('audio/wind.mp3');
-        // const forestSound = new Audio('audio/forest-sound.mp3');
-
-        // Set the loop property to true
-        windSound.loop = true;
-        // forestSound.loop = true;
-
-
-
-        btn1.addEventListener('click', () => {
-            playSong(windSound);
-        })
-
-
-
-        function playSong(song) {
-            // Pause any sound currently playing
-            windSound.pause();
-            // forestSound.pause();
-            // Reset the currentTime to start from the beginning
-            windSound.currentTime = 0;
-            // forestSound.currentTime = 0;
-
-            // Play the selected sound
-            song.play();
-        }
-
     }
 
     function tasks() {
@@ -60,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
             input.type = 'text';
             input.placeholder = '>_';
             input.id = `focus-ring-input-${i}`;
-            input.value = `>_ ${input.value}`;
+            input.value = `${input.value}`;
 
             // Cargar desde localStorage si existe
             const valueLS = localStorage.getItem(`focus-ring-input-${i}`);
@@ -78,19 +36,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function crono() {
 
+        // Cronómetro
         const hs = document.querySelector('#focus-ring-crono-hs');
         const mins = document.querySelector('#focus-ring-crono-mins');
-        const btn = document.querySelector('#focus-ring-crono-btn');
+
+        // Btns Cronometro
         const pauseBtn = document.querySelector('#focus-ring-crono-pause');
         const resetBtn = document.querySelector('#focus-ring-crono-reset');
+        const muteBtn = document.querySelector('#focus-ring-crono-sound');
         const playBtn = document.querySelector('#focus-ring-crono-btn');
 
+        // Btns de Sonido
+        const soundBtns = document.querySelector('.focus-lotr__sounds-grid').querySelectorAll('BUTTON');
+
+        // Inicializar Sonido
+        let actualSound = 'wind'; // < almacenar y cargar de LS
+        let soundInstance = new Audio();
+
+        // Instancia Interval
         let intervalId; // me permite reiniciar el interval
 
         // Flags
         let flagActivo = false; // cronometro "activo"
         let flagPause = false;  // cronometro pausado
-        let playVisible = true; // visibilidad del btn play
+        let flagMute = true; // Es reemplazado por LS
 
         // Tiempo del cronometro
         let hsCrono = 0;
@@ -100,6 +69,11 @@ window.addEventListener('DOMContentLoaded', () => {
         // Crono Regex
         const regexMins = /^(?:[1-5]?[0-9]|60)$/; // 0-60 números positivos
         const regexHs = /^(?:[0]?[0-7]|7)$/; // 0-7 números positivos
+
+        cargarDatosLocalStorage();
+
+        resetCrono(); // reinicia todo el cronometro cada vez que se recarga la pag
+        playBtn.classList.add('focus-lotr__btn-op')
 
         hs.addEventListener('input', (e) => {
 
@@ -127,7 +101,6 @@ window.addEventListener('DOMContentLoaded', () => {
         mins.addEventListener('input', (e) => {
 
             if (!flagActivo) {
-
                 let value = e.target.value;
 
                 // Filtrar caracteres no permitidos
@@ -147,13 +120,18 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        btn.addEventListener('click', (e) => {
+        playBtn.addEventListener('click', (e) => {
             e.preventDefault();
             if ((hs.value !== '' || mins.value !== '') & !flagActivo) {
 
+                // Evaluar sonido
+                if (!flagMute) { // Flag de mute
+                    soundInstance = playSound(actualSound);
+                    soundInstance.play();
+                }
+
                 mins.disabled = true;
                 hs.disabled = true;
-
                 flagActivo = true;
                 hideBtns();
 
@@ -176,9 +154,6 @@ window.addEventListener('DOMContentLoaded', () => {
                             playBtn.classList.add('focus-lotr__btn-op');
                             // Termina el cronometro, animación aqui!
                             sweetAlert();
-
-
-
                         }
                     }
                 }, 1000); // 1 min 6000
@@ -190,15 +165,15 @@ window.addEventListener('DOMContentLoaded', () => {
             if (flagActivo) {
                 if (!flagPause) {
                     // no esta en pausa
-                    flagPause = true; // pausar
-                    pauseBtn.innerHTML = '<i class="fa-regular fa-circle-play"></i>'
-
+                    flagPause = true;
+                    pauseBtn.innerHTML = '<i class="fa-regular fa-circle-play"></i>';
+                    soundInstance.pause(); // pausar audio
                 } else {
                     // esta en pausa
-                    flagPause = false; // despausar
-                    pauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
+                    flagPause = false;
+                    pauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                    soundInstance.play();
                 }
-
             }
         });
 
@@ -208,6 +183,93 @@ window.addEventListener('DOMContentLoaded', () => {
                 resetCrono();
             }
         });
+
+        muteBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (flagActivo) {
+                if (flagMute) {
+                    flagMute = false;
+                    muteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                    soundInstance = playSound(actualSound);
+                    soundInstance.play();
+                    localStorage.setItem('flag-mute', false);
+                } else {
+                    flagMute = true;
+                    muteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                    soundInstance.pause();
+                    soundInstance = new Audio();
+                    localStorage.setItem('flag-mute', true);
+                }
+            }
+        })
+
+        soundBtns.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+
+                actualSound = btn.value;
+                localStorage.setItem('sound-track', btn.value);
+
+                soundBtns.forEach((btnActivo) => {
+                    // Limpiar estilo seleccionado cada vez que hay un click
+                    btnActivo.classList.remove('focus-lotr__sound-btn--activo');
+                });
+                
+                // Cambiar estilo a seleccionado
+                btn.classList.add('focus-lotr__sound-btn--activo');
+                // LS
+
+
+                if (flagActivo) {
+                    soundInstance.pause();
+                    soundInstance = playSound(actualSound);
+
+                    if(!flagPause & !flagMute) {
+                        soundInstance.play();
+                    }
+                }
+            });
+        });
+
+        function cargarDatosLocalStorage() {
+            /* Cargar datos de  LocalStorage */
+
+            // Cargar mute
+            const muteLS = localStorage.getItem('flag-mute');
+            if (muteLS) {
+                flagMute = JSON.parse(muteLS);
+
+                if (!flagMute) {
+                    muteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                } else {
+                    muteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                }
+            }
+
+            // Cargar track
+            const soundLS = localStorage.getItem('sound-track');
+            if (soundLS) {
+                actualSound = soundLS;
+                soundBtns.forEach((btnActivo) => {
+                    // Limpiar estilo seleccionado cada vez que hay un click
+                    if( btnActivo.value === soundLS) {
+                        
+                        btnActivo.classList.add('focus-lotr__sound-btn--activo');
+                    }
+                });
+            } else {
+
+                soundBtns.forEach((btnActivo) => {
+                    // Limpiar estilo seleccionado cada vez que hay un click
+                    if( btnActivo.value === actualSound) {
+                        
+                        btnActivo.classList.add('focus-lotr__sound-btn--activo');
+                    }
+                });
+
+            }
+            // Cambiar estilos del track
+
+        }
 
         function sweetAlert() {
 
@@ -229,16 +291,17 @@ window.addEventListener('DOMContentLoaded', () => {
             hsCrono = 0;
             minsCrono = 0;
             total = 0;
+            soundInstance.pause(); // pausar sonido
             pauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
             if (intervalId) clearInterval(intervalId);
             hideBtns();
+            playBtn.classList.add('focus-lotr__btn-op');
         }
 
         function hideBtns() {
 
             // Cambia la visibilidad de los botones
             const contBtns = document.querySelector('#focus-ring-crono-btns');
-
 
             // Mostrar opts y ocultar play
             if (flagActivo) {
@@ -249,8 +312,30 @@ window.addEventListener('DOMContentLoaded', () => {
                 playBtn.classList.remove('focus-lotr__btn-op');
             }
         }
+
+        function playSound(sound) {
+
+            // Los nombres de los mp3 son tomados del "value" de cada BUTTON
+            const localSoundInstance = new Audio(`audio/${sound}.mp3`);
+
+            // Parche para sonidos demasiado altos (baja el volumen para reproducirlo)
+            if(sound === 'white_noise') { // El mismo nombre que el archivo y el value del boton
+                localSoundInstance.volume = .4;
+            }
+
+            // activar el loop
+            localSoundInstance.loop = true;
+
+            // pausar pista actual
+            localSoundInstance.pause();
+
+            // reiniciar pista
+            localSoundInstance.currentTime = 0;
+
+            return localSoundInstance;
+        }
     }
-    function main() {
+    function actualDate() {
 
 
         const elementoHora = document.querySelector('#focus-lotr-hora');

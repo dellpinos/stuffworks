@@ -68,7 +68,7 @@
         grid-template-rows: repeat(3, 1fr);
 
 
-
+        
 
         z-index: 2;
 
@@ -228,13 +228,21 @@
 
     &__links {
         display: flex;
-        align-items: end;
-        justify-content: start;
+        // align-items: end;
+        // justify-content: end;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+
+        h3 {
+            text-align: center;
+            color: v.$dorado;
+        }
 
 
         // grid-column: 3/4;
         // grid-row: 3/4;
-        grid-column: 1/3;
+        grid-column: 1/2;
         grid-row: 3/4;
     }
 
@@ -253,16 +261,16 @@
 
         a {
             color: v.$dorado;
-            padding: 2rem;
+            padding: 1.5rem;
             border: .5px solid v.$amarillo;
-            font-size: 5rem;
+            font-size: 3.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 10px v.$dorado,
                 0 0 10px v.$dorado inset;
 
-            transition: all 1s ease;
+            transition: all .5s ease;
 
             &:hover {
 
@@ -277,14 +285,23 @@
     }
     &__sounds {
         display: flex;
-        align-items: end;
-        justify-content: start;
+        // align-items: end;
+        // justify-content: end;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
 
+
+        
 
         // grid-column: 3/4;
         // grid-row: 3/4;
         grid-column: 3/4;
         grid-row: 3/4;
+
+        h3 {
+            color: v.$blanco;
+        }
     }
 
     // &__beauty {
@@ -295,39 +312,46 @@
     &__sounds-grid {
 
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-auto-flow: dense;
 
         gap: 2rem;
 
-        button {
+
+    }
+
+    &__sound-btn {
+        color: v.$blanco;
+        background-color: v.$negro;
+        padding: 1.5rem;
+        border: .5px solid v.$amarillo;
+        font-size: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px v.$blanco,
+            0 0 10px v.$blanco inset;
+
+        transition: all .5s ease;
+
+        &:hover {
+            border: .5px solid v.$blanco;
             color: v.$blanco;
-            background-color: v.$negro;
-            padding: 2rem;
-            border: .5px solid v.$amarillo;
-            font-size: 5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 10px v.$blanco,
-                0 0 10px v.$blanco inset;
+            box-shadow: none;
+            cursor: pointer;
+        }
 
-            transition: all 1s ease;
-
-            &:hover {
-
-
-                border: .5px solid v.$blanco;
-                color: v.$blanco;
-                box-shadow: none;
-                cursor: pointer;
-
-            }
-
+        &--activo {
+            border: .5px solid v.$blanco;
+            color: v.$blanco;
+            box-shadow: none;
         }
     }
 
 
+    &__down-btn {
+
+    }
 
 
     // &__mens {

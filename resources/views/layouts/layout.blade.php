@@ -21,7 +21,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="relative">
     <div class="header__grid">
         <header class="header">
             <div class="header__contenedor">
@@ -63,6 +63,8 @@
     </div>
 
     @yield('contenido')
+
+    <button class="scroll scroll-oculto" id="scroll-arrow" ><i class="fa-solid fa-down-long"></i></button>
 
     <div class="@if (request()->routeIs('scripts.likes')) footer__enlace--activo @endif">
 

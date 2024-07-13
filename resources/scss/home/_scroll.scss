@@ -1,0 +1,41 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+.scroll {
+
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+
+    width: 7rem;
+    height: 7rem;
+    z-index: 3;
+    color: v.$blanco;
+    background-color: v.$negro;
+    padding: 1.5rem;
+    border: .5px solid v.$amarillo;
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px v.$blanco,
+        0 0 10px v.$blanco inset;
+
+    transition: all .5s ease;
+
+    &--oculto {
+        opacity: 0;
+    }
+    // &:hover {
+    //     border: .5px solid v.$blanco;
+    //     color: v.$blanco;
+    //     box-shadow: none;
+    //     cursor: pointer;
+    // }
+
+    // &--activo {
+    //     border: .5px solid v.$blanco;
+    //     color: v.$blanco;
+    //     box-shadow: none;
+    // }
+}
