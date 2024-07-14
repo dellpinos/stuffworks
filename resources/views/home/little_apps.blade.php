@@ -11,7 +11,7 @@
 
 <div class="little-apps">
     <div class="little-apps__grid">
-        <a class="little-apps__enlace" href="https://667494cfedca86c292351ad1--spectacular-axolotl-4c9622.netlify.app/" target="_blank">
+        <a class="little-apps__enlace" href="https://spectacular-axolotl-4c9622.netlify.app/" target="_blank">
             <div>
                 <h3>Calorias</h3>
                 <img src="{{ asset('img/react.svg') }}" alt="Icono react">
@@ -25,7 +25,7 @@
                 <li>>_ CSS</li>
             </ul>
         </a>
-        <a class="little-apps__enlace" href="https://66747c626a08c6a95deb6cde--dapper-ganache-049064.netlify.app/" target="_blank">
+        <a class="little-apps__enlace" href="https://dapper-ganache-049064.netlify.app/" target="_blank">
             <div>
                 <h3>Cotizador Cripto</h3>
                 <img src="{{ asset('img/react.svg') }}" alt="Icono react">
@@ -40,7 +40,7 @@
                 <li>>_ CriptoCompare API</li>
             </ul>
         </a>
-        <a class="little-apps__enlace" href="https://66884ea0524ab7798d4c2f0d--superlative-crumble-b5398d.netlify.app/" target="_blank">
+        <a class="little-apps__enlace" href="https://superlative-crumble-b5398d.netlify.app/" target="_blank">
             <div>
                 <h3>Gestor de Presupuestos</h3>
                 <img src="{{ asset('img/typescript.svg') }}" alt="Icono typescript">
@@ -54,7 +54,7 @@
                 <li>>_ Librerias</li>
             </ul>
         </a>
-        <a class="little-apps__enlace" href="https://667495a3dd68c8cab3fc25c5--coruscating-starburst-07e5b7.netlify.app/" target="_blank">
+        <a class="little-apps__enlace" href="https://coruscating-starburst-07e5b7.netlify.app/" target="_blank">
             <div>
                 <h3>Propina</h3>
                 <img src="{{ asset('img/typescript.svg') }}" alt="Icono typescript">
@@ -68,7 +68,7 @@
                 <li>>_ CSS</li>
             </ul>
         </a>
-        <a class="little-apps__enlace" href="https://66749658a47af8c0bad36beb--superlative-alpaca-2eb90a.netlify.app/" target="_blank">
+        <a class="little-apps__enlace" href="https://superlative-alpaca-2eb90a.netlify.app/" target="_blank">
             <div>
                 <h3>Gestor de Turnos</h3>
                 <img src="{{ asset('img/react.svg') }}" alt="Icono react">
@@ -82,7 +82,7 @@
                 <li>>_ CSS</li>
             </ul>
         </a>
-        <a class="little-apps__enlace" href="https://667498c3235f9bcd04a5c58a--fancy-zabaione-407e7d.netlify.app/" target="_blank">
+        <a class="little-apps__enlace" href="https://fancy-zabaione-407e7d.netlify.app/" target="_blank">
             <div>
                 <h3>Google Search</h3>
                 <img src="{{ asset('img/html5.svg') }}" alt="Icono html">
@@ -93,16 +93,39 @@
                 <li>>_ CSS</li>
             </ul>
         </a>
+        <a class="little-apps__enlace" href="https://warm-pavlova-8a3cb4.netlify.app/" target="_blank">
+            <div>
+                <h3>AcuStore</h3>
+                <img src="{{ asset('img/typescript.svg') }}" alt="Icono typescript">
+                <p>Tienda Online</p>
+            </div>
+            <ul>
+                <li>>_ TypeScript</li>
+                <li>>_ Vite</li>
+                <li>>_ HTML5</li>
+            </ul>
+        </a>
         <a class="little-apps__enlace" href="https://blogcafedellpinos.netlify.app/" target="_blank">
             <div>
                 <h3>BlogDeCafé</h3>
                 <img src="{{ asset('img/html5.svg') }}" alt="Icono html">
                 <p>Blog</p>
-
             </div>
             <ul>
                 <li>>_ HTML5</li>
                 <li>>_ CSS / SASS</li>
+            </ul>
+        </a>
+        <a class="little-apps__enlace" href="https://heroic-unicorn-c41bea.netlify.app/" target="_blank">
+            <div>
+                <h3>Festival Rock</h3>
+                <img src="{{ asset('img/sass.svg') }}" alt="Icono sass">
+                <p>Cronograma de Festival de Música</p>
+            </div>
+            <ul>
+                <li>>_ SASS</li>
+                <li>>_ HTML</li>
+                <li>>_ JavaScript</li>
             </ul>
         </a>
         <a class="little-apps__enlace" href="https://effulgent-alfajores-d661a7.netlify.app/" target="_blank">
