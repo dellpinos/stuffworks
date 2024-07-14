@@ -127,6 +127,18 @@
                 <li>>_ CSS</li>
             </ul>
         </a>
+        <a class="little-apps__enlace" href="https://resplendent-mooncake-4f4b06.netlify.app/" target="_blank">
+            <div>
+                <h3>Calculadora v_2</h3>
+                <img src="{{ asset('img/javascript.svg') }}" alt="Icono Javascript">
+                <p>Calculadora - unfinished -</p>
+            </div>
+            <ul>
+                <li>>_ JavaScript</li>
+                <li>>_ HTML</li>
+                <li>>_ SASS</li>
+            </ul>
+        </a>
         <a class="little-apps__enlace" href="https://prueba12323.netlify.app/" target="_blank">
             <div>
                 <h3>Calculadora v_1</h3>
