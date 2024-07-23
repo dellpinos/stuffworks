@@ -8,7 +8,10 @@
 @endsection
 
 @section('main-content')
+    <p class="inicio__mensaje">Este sitio es mi pequeño rincón en la web donde experimento con diferentes tecnologías y comparto proyectos que he
+        creado</p>
     <div class="inicio">
+
         <div class="inicio__grid">
             <a href="{{ route('home.apps') }}" class="inicio__enlace">
                 <img src="{{ asset('img/server.svg') }}" alt="Apps Online">
