@@ -4,6 +4,16 @@ import 'tippy.js/animations/scale-subtle.css';
 
 /* Aqui se aplican todos los tooltips del sitio */
 
+// Header ClickMe
+
+
+tippy('#header-icon-container', {
+    placement: 'bottom',
+    content: 'Click Me!',
+    animation: 'scale-subtle',
+    hideOnClick: false,
+    delay: [100, 0]
+})
 
 // Focus Ring Links
 tippy('#focus-lotr-link-trello', {
