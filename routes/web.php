@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/languages/{locale}', [HomeController::class, 'language_change'])->name('home.language');
+
 Route::get('/little_apps', [HomeController::class, 'little_apps'])->name('home.little_apps');
 Route::get('/focus', [Homecontroller::class, 'focus'])->name('home.focus');
 Route::get('/focus_lotr', [Homecontroller::class, 'focus_lotr'])->name('home.focus_lotr');

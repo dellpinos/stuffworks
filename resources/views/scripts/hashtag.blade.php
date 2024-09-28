@@ -11,20 +11,20 @@
     <div class="scripts__contenido">
         <h2 class="scripts__heading">#Hashtag</h2>
         <form class="formulario">
-            <p class="formulario__description">Convierte frases en hashtags, el resultado no puede superar los 140 caracteres</p>
+            <p class="formulario__description">{{ __('scripts.script_hash_desc') }}</p>
             <div class="formulario__example">
-                <p>Input: "tenemos Un Problema"</p>
-                <p>Output: "#TenemosUnProblema"</p>
+                <p>Input: "we Have a problem"</p>
+                <p>Output: "#WeHaveAProblem"</p>
             </div>
             <div>
-                <input type="text" placeholder="Escribe cualquier texto" id="inputHashtag">
+                <input type="text" placeholder="{{ __('scripts.script_placeholder') }}" id="inputHashtag">
             </div>
             <div class="formulario__boton-contenedor">
-                <button id="botonFormularioHashtag">Enviar</button>
+                <button id="botonFormularioHashtag">{{ __('scripts.script_btn_submit') }}</button>
             </div>
         </form>
         <div class="scripts__resultado-contenedor">
-            <p class="scripts__resultado" id="resultadoHashtag">Resultado</p>
+            <p class="scripts__resultado" id="resultadoHashtag">{{ __('scripts.script_result') }}</p>
         </div>
     </div>
 @endsection

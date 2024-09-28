@@ -4,7 +4,7 @@
 @endsection
 
 @section('titulo')
-    Little Apps & More
+    Small Apps & More
 @endsection
 
 @section('main-content')
@@ -13,9 +13,9 @@
     <div class="little-apps__grid">
         <a class="little-apps__enlace" href="https://spectacular-axolotl-4c9622.netlify.app/" target="_blank">
             <div>
-                <h3>Calorias</h3>
+                <h3>{{ __('little_apps.little_t_calorias') }}</h3>
                 <img src="{{ asset('img/react.svg') }}" alt="Icono react">
-                <p>Contador Calorias</p>
+                <p>{{ __('little_apps.little_t_calorias') }}</p>
             </div>
             <ul>
                 <li>>_ React</li>
@@ -27,9 +27,9 @@
         </a>
         <a class="little-apps__enlace" href="https://dapper-ganache-049064.netlify.app/" target="_blank">
             <div>
-                <h3>Cotizador Cripto</h3>
+                <h3>{{ __('little_apps.little_t_crypto') }}</h3>
                 <img src="{{ asset('img/react.svg') }}" alt="Icono react">
-                <p>Criptomonedas</p>
+                <p>{{ __('little_apps.little_d_crypto') }}</p>
             </div>
             <ul>
                 <li>>_ React</li>
@@ -40,25 +40,38 @@
                 <li>>_ CriptoCompare API</li>
             </ul>
         </a>
+        <a class="little-apps__enlace" href="https://cozy-stardust-e7c07f.netlify.app/" target="_blank">
+            <div>
+                <h3>{{ __('little_apps.little_t_cocktail') }}</h3>
+                <img src="{{ asset('img/react.svg') }}" alt="Icono react">
+                <p>{{ __('little_apps.little_d_cocktail') }}</p>
+            </div>
+            <ul>
+                <li>>_ React</li>
+                <li>>_ TypeScript</li>
+                <li>>_ Vite</li>
+                <li>>_ REST API</li>
+            </ul>
+        </a>
         <a class="little-apps__enlace" href="https://superlative-crumble-b5398d.netlify.app/" target="_blank">
             <div>
-                <h3>Gestor de Presupuestos</h3>
+                <h3>{{ __('little_apps.little_t_gestor') }}</h3>
                 <img src="{{ asset('img/typescript.svg') }}" alt="Icono typescript">
-                <p>Contador de Gastos</p>
+                <p>{{ __('little_apps.little_d_gestor') }}</p>
             </div>
             <ul>
                 <li>>_ TypeScript</li>
                 <li>>_ React</li>
                 <li>>_ Context API</li>
                 <li>>_ Reducers</li>
-                <li>>_ Librerias</li>
+                <li>>_ Libraries</li>
             </ul>
         </a>
         <a class="little-apps__enlace" href="https://coruscating-starburst-07e5b7.netlify.app/" target="_blank">
             <div>
-                <h3>Propina</h3>
+                <h3>{{ __('little_apps.little_t_propina') }}</h3>
                 <img src="{{ asset('img/typescript.svg') }}" alt="Icono typescript">
-                <p>Contador de Propinas</p>
+                <p>{{ __('little_apps.little_d_propina') }}</p>
             </div>
             <ul>
                 <li>>_ TypeScript</li>
@@ -70,9 +83,9 @@
         </a>
         <a class="little-apps__enlace" href="https://superlative-alpaca-2eb90a.netlify.app/" target="_blank">
             <div>
-                <h3>Gestor de Turnos</h3>
+                <h3>{{ __('little_apps.little_t_turnos') }}</h3>
                 <img src="{{ asset('img/react.svg') }}" alt="Icono react">
-                <p>Gestor Turnos Veterinaria</p>
+                <p>{{ __('little_apps.little_d_turnos') }}</p>
             </div>
             <ul>
                 <li>>_ React</li>
@@ -84,20 +97,33 @@
         </a>
         <a class="little-apps__enlace" href="https://fancy-zabaione-407e7d.netlify.app/" target="_blank">
             <div>
-                <h3>Google Search</h3>
+                <h3>{{ __('little_apps.little_t_google') }}</h3>
                 <img src="{{ asset('img/html5.svg') }}" alt="Icono html">
-                <p>Google Search Dark Mode</p>
+                <p>{{ __('little_apps.little_d_google') }}</p>
             </div>
             <ul>
                 <li>>_ HTML</li>
                 <li>>_ CSS</li>
             </ul>
         </a>
+        <a class="little-apps__enlace" href="https://gilded-banoffee-fdd115.netlify.app/" target="_blank">
+            <div>
+                <h3>{{ __('little_apps.little_t_clima') }}</h3>
+                <img src="{{ asset('img/typescript.svg') }}" alt="Icono typescript">
+                <p>{{ __('little_apps.little_d_clima') }}</p>
+            </div>
+            <ul>
+                <li>>_ TypeScript</li>
+                <li>>_ ZOD</li>
+                <li>>_ Vite</li>
+                <li>>_ HTML5</li>
+            </ul>
+        </a>
         <a class="little-apps__enlace" href="https://warm-pavlova-8a3cb4.netlify.app/" target="_blank">
             <div>
-                <h3>AcuStore</h3>
+                <h3>{{ __('little_apps.little_t_acustore') }}</h3>
                 <img src="{{ asset('img/typescript.svg') }}" alt="Icono typescript">
-                <p>Tienda Online</p>
+                <p>{{ __('little_apps.little_d_acustore') }}</p>
             </div>
             <ul>
                 <li>>_ TypeScript</li>
@@ -107,9 +133,9 @@
         </a>
         <a class="little-apps__enlace" href="https://blogcafedellpinos.netlify.app/" target="_blank">
             <div>
-                <h3>BlogDeCafé</h3>
+                <h3>{{ __('little_apps.little_t_cafe') }}</h3>
                 <img src="{{ asset('img/html5.svg') }}" alt="Icono html">
-                <p>Blog</p>
+                <p>{{ __('little_apps.little_d_cafe') }}</p>
             </div>
             <ul>
                 <li>>_ HTML5</li>
@@ -118,9 +144,9 @@
         </a>
         <a class="little-apps__enlace" href="https://heroic-unicorn-c41bea.netlify.app/" target="_blank">
             <div>
-                <h3>Festival Rock</h3>
+                <h3>{{ __('little_apps.little_t_rock') }}</h3>
                 <img src="{{ asset('img/sass.svg') }}" alt="Icono sass">
-                <p>Cronograma de Festival de Música</p>
+                <p>{{ __('little_apps.little_d_rock') }}</p>
             </div>
             <ul>
                 <li>>_ SASS</li>
@@ -130,9 +156,9 @@
         </a>
         <a class="little-apps__enlace" href="https://effulgent-alfajores-d661a7.netlify.app/" target="_blank">
             <div>
-                <h3>Tienda</h3>
+                <h3>{{ __('little_apps.little_t_tienda') }}</h3>
                 <img src="{{ asset('img/css3.svg') }}" alt="Icono css">
-                <p>Tienda Online</p>
+                <p>{{ __('little_apps.little_d_tienda') }}</p>
             </div>
             <ul>
                 <li>>_ CSS</li>
@@ -141,9 +167,9 @@
         </a>
         <a class="little-apps__enlace" href="https://proyectohtmlcss0001.netlify.app/" target="_blank">
             <div>
-                <h3>Web - Freelancer</h3>
+                <h3>{{ __('little_apps.little_t_freelance') }}</h3>
                 <img src="{{ asset('img/html5.svg') }}" alt="Icono html">
-                <p>Portfolio Diseñador Freelancer</p>
+                <p>{{ __('little_apps.little_d_freelance') }}</p>
             </div>
             <ul>
                 <li>>_ HTML5</li>
@@ -152,9 +178,9 @@
         </a>
         <a class="little-apps__enlace" href="https://resplendent-mooncake-4f4b06.netlify.app/" target="_blank">
             <div>
-                <h3>Calculadora v_2</h3>
+                <h3>{{ __('little_apps.little_t_calc2') }}</h3>
                 <img src="{{ asset('img/javascript.svg') }}" alt="Icono Javascript">
-                <p>Calculadora - unfinished -</p>
+                <p>{{ __('little_apps.little_t_calc2') }} - unfinished -</p>
             </div>
             <ul>
                 <li>>_ JavaScript</li>
@@ -164,9 +190,9 @@
         </a>
         <a class="little-apps__enlace" href="https://prueba12323.netlify.app/" target="_blank">
             <div>
-                <h3>Calculadora v_1</h3>
+                <h3>{{ __('little_apps.little_t_calc1') }}</h3>
                 <img src="{{ asset('img/javascript.svg') }}" alt="Icono Javascript">
-                <p>Calculadora - unfinished -</p>
+                <p>{{ __('little_apps.little_d_calc1') }} - unfinished -</p>
             </div>
             <ul>
                 <li>>_ JavaScript</li>
@@ -176,9 +202,9 @@
         </a>
         <a class="little-apps__enlace" href="https://mellow-raindrop-25bccb.netlify.app/" target="_blank">
             <div>
-                <h3>Ejemplo de Interfaz</h3>
+                <h3>{{ __('little_apps.little_t_ejem') }}</h3>
                 <img src="{{ asset('img/sass.svg') }}" alt="Icono sass">
-                <p>Interfaz - unfinished -</p>
+                <p>{{ __('little_apps.little_d_ejem') }} - unfinished -</p>
             </div>
             <ul>
                 <li>>_ HTML</li>
@@ -188,9 +214,9 @@
         </a>
         <a class="little-apps__enlace" href="https://imaginative-kleicha-d8ead1.netlify.app/" target="_blank">
             <div>
-                <h3>Botones</h3>
+                <h3>{{ __('little_apps.little_t_btns') }}</h3>
                 <img src="{{ asset('img/css3.svg') }}" alt="Icono css">
-                <p>Galeria de Botones</p>
+                <p>{{ __('little_apps.little_d_btns') }}</p>
             </div>
             <ul>
                 <li>>_ CSS</li>
