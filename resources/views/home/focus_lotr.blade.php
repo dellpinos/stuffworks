@@ -17,7 +17,7 @@
             <div class="focus-lotr__up-tasks">
                 {{-- Elemento Visible --}}
                 <div>
-                    <h4>Notas temporales e ideas para el proyecto actual (son almacenadas en el navegador):</h4>
+                    <h4>{{ __('lotr.lotr_notes') }}:</h4>
                     <form action="#" id="focus-lotr-tasks">
                         {{-- Js --}}
                     </form>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="focus-lotr__links">
-                <h3>Herramientas</h3>
+                <h3>{{ __('lotr.lotr_tools') }}</h3>
                 {{-- Elemento Visible --}}
                 <div class="focus-lotr__links-grid">
                     <a href="https://trello.com/" target="_blank" id="focus-lotr-link-trello"><i
@@ -79,7 +79,7 @@
 
             <div class="focus-lotr__sounds">
                 {{-- Elemento Visible --}}
-                <h3>Sonidos</h3>
+                <h3>{{ __('lotr.lotr_sounds') }}</h3>
                 <div class="focus-lotr__sounds-grid">
                     <button class="focus-lotr__sound-btn" value="thunder"><i class="fa-solid fa-cloud-bolt"></i></button>
                     <button class="focus-lotr__sound-btn" value="rainfall"><i
@@ -94,7 +94,6 @@
 
                 </div>
             </div>
-
         </div>
     </div>
   

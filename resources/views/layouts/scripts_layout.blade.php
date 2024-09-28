@@ -18,7 +18,7 @@
                 <a href="{{ route('scripts.to_camel') }}">camelCase</a>
             </div>
             <div class="sidebar__entrada @if (request()->routeIs('scripts.cuadricula')) sidebar__entrada--activo @endif">
-                <a href="{{ route('scripts.cuadricula') }}">Cuadricula</a>
+                <a href="{{ route('scripts.cuadricula') }}">Grid</a>
             </div>
             <div class="sidebar__entrada @if (request()->routeIs('scripts.hashtag')) sidebar__entrada--activo @endif">
                 <a href="{{ route('scripts.hashtag') }}">#Hashtag</a>
