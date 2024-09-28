@@ -8,8 +8,8 @@
 @endsection
 
 @section('main-content')
-    <p class="inicio__mensaje">Este sitio es mi pequeño rincón en la web donde experimento con diferentes tecnologías y comparto proyectos que he
-        creado</p>
+    <p class="inicio__mensaje">{{ __('messages.welcome')}}</p>
+
     <div class="inicio">
 
         <div class="inicio__grid">
@@ -19,7 +19,7 @@
             </a>
             <a href="{{ route('home.little_apps') }}" class="inicio__enlace">
                 <img src="{{ asset('img/internet.svg') }}" alt="Little Apps">
-                <p>Little Apps</p>
+                <p>Small Apps</p>
             </a>
             <a href="{{ route('scripts.index') }}" class="inicio__enlace">
                 <img src="{{ asset('img/dev.svg') }}" alt="Scripts">

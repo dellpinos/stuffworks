@@ -11,7 +11,7 @@
 
 <div class="contact">
 
-    <h1>Enlaces de Contacto</h1>
+    <h1>{{ __('contact.contact_welcome') }}</h1>
 
     <div class="contact__grid">
         <a href="https://www.linkedin.com/in/martin-del-pino/" target="blank">

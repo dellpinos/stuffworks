@@ -11,20 +11,20 @@
     <div class="scripts__contenido">
         <h2 class="scripts__heading">WordFlip!</h2>
         <form class="formulario">
-            <p class="formulario__description">Invierte el orden de las letras en la palabra, estas palabras se eligen al azar.</p>
+            <p class="formulario__description">{{ __('scripts.script_wf_desc') }}</p>
             <div class="formulario__example">
-                <p>Input: "Este es un ejemplo de texto"</p>
-                <p>Output: "etsE es un olpmeje de otxet"</p>
+                <p>Input: "This is an example of text"</p>
+                <p>Output: "sihT si na example of text"</p>
             </div>
             <div>
-                <input type="text" placeholder="Escribe cualquier texto" id="inputWordFlip">
+                <input type="text" placeholder="{{ __('scripts.script_placeholder') }}" id="inputWordFlip">
             </div>
             <div class="formulario__boton-contenedor">
-                <button id="botonFormularioWordFlip">Enviar</button>
+                <button id="botonFormularioWordFlip">{{ __('scripts.script_btn_submit') }}</button>
             </div>
         </form>
         <div class="scripts__resultado-contenedor">
-            <p class="scripts__resultado" id="resultadoWF">Resultado</p>
+            <p class="scripts__resultado" id="resultadoWF">{{ __('scripts.script_result') }}</p>
         </div>
     </div>
 @endsection

@@ -11,20 +11,20 @@
     <div class="scripts__contenido">
         <h2 class="scripts__heading">Hexa</h2>
         <form class="formulario">
-            <p class="formulario__description">Convierte colores RGB en Hexadecimal. Los números deben estar separados por una coma.</p>
+            <p class="formulario__description">{{ __('scripts.script_hexa_desc') }}</p>
             <div class="formulario__example">
                 <p>Input: "255,10,111"</p>
                 <p>Output: "FF0A6F"</p>
             </div>
             <div>
-                <input type="" placeholder="Un color RGB" id="inputHexa">
+                <input type="" placeholder="RGB color" id="inputHexa">
             </div>
             <div class="formulario__boton-contenedor">
-                <button id="botonFormularioHexa">Enviar</button>
+                <button id="botonFormularioHexa">{{ __('scripts.script_btn_submit') }}</button>
             </div>
         </form>
         <div class="scripts__resultado-contenedor">
-            <p class="scripts__resultado" id="resultadoHexa">Resultado</p>
+            <p class="scripts__resultado" id="resultadoHexa">{{ __('scripts.script_result') }}</p>
         </div>
     </div>
 @endsection

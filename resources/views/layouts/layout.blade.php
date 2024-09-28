@@ -7,7 +7,7 @@
     @yield('meta')
     <title>MdP - @yield('titulo')</title>
     <meta name="description" content="Portfolio Martin del Pino">
-    <link rel="icon" href="{{ asset('img/fav_6.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('img/avatar.svg') }}" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,27 +33,41 @@
                     <div class="header__icono-opts" id="header-icono-opts">
                         <p id="header-icon-display-one"></p>
                         <p id="header-icon-display-two"></p>
-
                     </div>
                 </div>
 
                 <a href="{{ route('home') }}">
                     <h1 class="header__heading">Stuff and Scripts</h1>
                 </a>
+
+                <div class="lang__container">
+                    @if (session('locale') === 'en')
+                        <a href="{{ route('home.language', 'es') }}" class="lang__btn">
+                            <i class="lang__icon fa-solid fa-globe"></i>
+                            <p>EN</p>
+                        </a>
+                    @else
+                        <a href="{{ route('home.language', 'en') }}" class="lang__btn">
+                            <i class="lang__icon fa-solid fa-globe"></i>
+                            <p>ES</p>
+                        </a>
+                    @endif
+                </div>
+
             </div>
 
         </header>
         <div class="header__mensaje" id="header-mensaje-opts">
             <div class="header__mensaje-campo">
-                <label for="mens-tolerancia">Tolerancia:</label>
+                <label for="mens-tolerancia">{{ __('click_me.click_tolerance' )}}:</label>
                 <input type="number" step=".1" id="mens-tolerancia" min=".1" max=".5">
             </div>
             <div class="header__mensaje-campo">
-                <label for="mens-help">Ayuda:</label>
+                <label for="mens-help">{{ __('click_me.click_help' )}}:</label>
                 <input type="checkbox" id="mens-help" checked>
             </div>
             <div class="header__mensaje-campo">
-                <p>Victorias: <span id="mens-victories">0</span></p>
+                <p>{{ __('click_me.click_victories' )}}: <span id="mens-victories">0</span></p>
             </div>
             <div class="header__mensaje-campo">
                 <p>Record: <span id="mens-record">0</span></p>
@@ -64,7 +78,7 @@
 
     {{-- Parche hasta que sea implementado un diseño responsive --}}
     <div id="warning-responsive-message">
-        Este sitio aún no es compatible con pantallas pequeñas. Por favor, ábrelo en una pantalla más grande.
+        {{ __('messages.no_responsive') }}
     </div>
     {{-- Parche hasta que sea implementado un diseño responsive --}}
 
@@ -77,14 +91,14 @@
     <footer class="footer__contenedor" id="footer">
         <div class="footer__grid">
             <a href="{{ route('home.apps') }}" class="@if (request()->routeIs('home.apps')) footer__enlace--activo @endif">Apps Online</a>
-            <a href="{{ route('home.little_apps') }}" class="@if (request()->routeIs('home.little_apps')) footer__enlace--activo @endif">Little Apps</a>
+            <a href="{{ route('home.little_apps') }}" class="@if (request()->routeIs('home.little_apps')) footer__enlace--activo @endif">Small Apps</a>
             <a href="{{ route('scripts.index') }}" class="@if (request()->routeIs('scripts.index')) footer__enlace--activo @endif">Challenges</a>
             <a href="{{ route('home.focus') }}" class="@if (request()->routeIs('home.focus')) footer__enlace--activo @endif">Focus Page</a>
             <a href="{{ route('home.focus_lotr') }}" class="@if (request()->routeIs('home.focus_lotr')) footer__enlace--activo @endif">Focus Ring</a>
             <a href="{{ route('home.contact') }}" class="@if (request()->routeIs('home.contact')) footer__enlace--activo @endif">Contact</a>
         </div>
         <a class="footer__nombre" href="https://dellpinos.com/" target="_blank"><span>Martín del Pino</span> - &copy;
-            Todos los derechos reservados {{ now()->year }}</a>
+            {{ __('messages.copyright') }} {{ now()->year }}</a>
     </footer>
 
     @vite('resources/js/app.js')

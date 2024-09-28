@@ -1,0 +1,32 @@
+@use '../base/variables' as v;
+
+.lang__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang__btn {
+    background-color: inherit;
+    border: 1px solid v.$DMgrisOscuro;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: border .5s ease;
+    cursor: pointer;
+
+    p {
+        margin: 1rem 0 0 0;
+        color: v.$amarillo;
+        font-size: 1.8rem;
+    }
+
+    &:hover {
+        border: 1px solid v.$amarillo;
+        
+    }
+}
+
+.lang__icon {
+    font-size: 3rem;
+    color: v.$amarillo;
+}

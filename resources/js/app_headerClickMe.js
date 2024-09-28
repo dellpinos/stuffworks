@@ -4,6 +4,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (document.querySelector('#header-icon-container')) {
 
+        // Detectar idioma para cambiar textos
+        const currentLang = document.documentElement.lang;
+
         button();
         infoCookies();
 
@@ -48,11 +51,20 @@ window.addEventListener('DOMContentLoaded', () => {
                 sweetAlert('info');
             }
         }
+
+        let txt0;
+
+        if (currentLang === 'es') {
+            txt0 = "Este sitio almacena tus prefernecias en tu navegador. No volveré a mostrarte este cartel.";
+        } else {
+            txt0 = "This site stores your preferences in your browser. I will not show you this message again.";
+        }
+
         function sweetAlert() {
 
             Swal.fire({
                 title: "Info",
-                text: 'Este sitio almacena tus prefernecias en tu navegador. No volveré a mostrarte este cartel.',
+                text: txt0,
                 showDenyButton: false,
                 icon: 'question',
                 confirmButtonText: "Ok",
@@ -61,7 +73,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('info-cookies', false);
                 }
             });
-
         }
 
         function arrowScroll() {
@@ -102,7 +113,6 @@ window.addEventListener('DOMContentLoaded', () => {
             let jugando = false;
             let victoriesAcu = 0;
 
-
             iconBtnCont.addEventListener('mouseover', () => {
                 displayTwo.textContent = "Click Me!";
             });
@@ -121,7 +131,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     document.querySelector('#header-icon').classList.remove('fa-crosshairs');
                     document.querySelector('#header-icon').classList.add('fa-gear');
                 }
-
             }
 
             iconBtnCont.addEventListener('click', () => {
@@ -196,7 +205,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     if (Math.abs(targetNum - (secondClickInSecs - firstClick)) <= tolerance) {
 
                         // Win!
-
                         triggerPulse(true);
                         success();
 
@@ -222,10 +230,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     } else {
 
                         // Lose
-
                         triggerPulse(false);
                     }
-
                 }
             });
 
@@ -286,7 +292,6 @@ window.addEventListener('DOMContentLoaded', () => {
             function triggerPulse(victory) {
 
                 if (victory) {
-
                     iconBtnCont.classList.remove('header__icono-pulse-fail');
                     iconBtnCont.classList.add('header__icono-pulse-success');
 
@@ -316,12 +321,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
                         reset();
                     }, 500);
-
                 }
             }
-
         }
-
-
     }
 });

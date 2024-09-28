@@ -10,7 +10,7 @@
 @section('main-content')
 
 <div class="scripts-inicio">
-    <h1>Algunos challenges y pequeños scripts.</h1>
+    <h1>{{ __('scripts.script_welcome') }}</h1>
 </div>
 
 @endsection

@@ -2,6 +2,9 @@ import Swal from './app_sweetAlert';
 
 window.addEventListener('DOMContentLoaded', () => {
 
+    // Detectar idioma para cambiar textos
+    const currentLang = document.documentElement.lang;
+
     if (document.querySelector('#focus-lotr-hora')) {
         actualDate();
         info();
@@ -364,21 +367,40 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function sweetAlert(flag) {
 
+        let txt0;
+        let txt1;
+        let txt2;
+        let txt3;
+
+        if (currentLang === 'es') {
+
+            txt0 = "Tiempo cumplido!";
+            txt1 = "Deberias descansar un poco, podés seguir en otro momento.";
+            txt2 = 'Esta página te permite escoger un tiempo de "concentración" menor a 7 horas. También puedes cambiar el sonido de fondo y dispones de diferentes enlaces y un espacio para tus notas.';
+            txt3 = 'No volver a mostrar';
+
+        } else {
+            txt0 = "Time's up!";
+            txt1 = "You should take a break, you can continue later.";
+            txt2 = 'This page allows you to set a "focus" time of less than 7 hours. You can also change the background sound, and there are different links and a space for your notes.';
+            txt3 = 'Do not show again';
+        }
+
         if (flag === 'success') {
             Swal.fire({
-                title: 'Tiempo cumplido!',
-                text: 'Deberias descansar un poco, podés seguir en otro momento.',
+                title: txt0,
+                text: txt1,
                 icon: 'success',
                 confirmButtonText: 'Ok',
             })
         } else if (flag === 'info') {
             Swal.fire({
                 title: "Info",
-                text: 'Esta página te permite escoger un tiempo de "concentración" menor a 7 horas. También puedes cambiar el sonido de fondo y dispones de diferentes enlaces y un espacio para tus notas.',
+                text: txt2,
                 showDenyButton: true,
                 icon: 'question',
                 confirmButtonText: "Ok",
-                denyButtonText: `No volver a mostrar`
+                denyButtonText: txt3
             }).then((result) => {
                 if (result.isDenied) {
                     // Swal.fire("Changes are not saved", "", "info");
@@ -386,10 +408,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
-
     }
     function actualDate() {
-
 
         const elementoHora = document.querySelector('#focus-lotr-hora');
         const elementoFecha = document.querySelector('#focus-lotr-fecha');
@@ -423,19 +443,20 @@ window.addEventListener('DOMContentLoaded', () => {
                 month: "long",
                 day: "numeric",
             };
-            elementoFecha.innerText = fechaActual.toLocaleDateString('es-ES', opts);
+            if (currentLang === 'es') {
 
+                elementoFecha.innerText = fechaActual.toLocaleDateString('es-ES', opts);
+            } else {
+                elementoFecha.innerText = fechaActual.toLocaleDateString('en-US', opts);
+                
+            }
         };
 
         calcularFecha();
-
         setInterval(() => {
 
             calcularFecha();
 
         }, 30000);
-
     }
-
-
 });

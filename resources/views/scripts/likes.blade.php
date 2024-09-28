@@ -11,20 +11,20 @@
     <div class="scripts__contenido">
         <h2 class="scripts__heading">Likes</h2>
         <form class="formulario">
-            <p class="formulario__description">Pone "likes" a un grupo de nombres</p>
+            <p class="formulario__description">{{ __('scripts.script_likes_desc') }}</p>
             <div class="formulario__example">
                 <p>Input: "Alex, Jacob, Mark, Max"</p>
                 <p>Output: "Alex, Jacob and 2 others like this"</p>
             </div>
             <div>
-                <input type="" placeholder="Escribe un listado de nombres" id="inputLikes">
+                <input type="" placeholder="Write a list of names" id="inputLikes">
             </div>
             <div class="formulario__boton-contenedor">
-                <button id="botonFormularioLikes">Enviar</button>
+                <button id="botonFormularioLikes">{{ __('scripts.script_btn_submit') }}</button>
             </div>
         </form>
         <div class="scripts__resultado-contenedor">
-            <p class="scripts__resultado" id="resultadoLikes">Resultado</p>
+            <p class="scripts__resultado" id="resultadoLikes">{{ __('scripts.script_result') }}</p>
         </div>
     </div>
 @endsection
