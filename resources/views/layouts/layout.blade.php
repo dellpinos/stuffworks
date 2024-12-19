@@ -41,15 +41,16 @@
                 </a>
 
                 <div class="lang__container">
-                    @if (session('locale') === 'en')
-                        <a href="{{ route('home.language', 'es') }}" class="lang__btn">
-                            <i class="lang__icon fa-solid fa-globe"></i>
-                            <p>EN</p>
-                        </a>
-                    @else
+                    @if (session('locale') == 'es')
+
                         <a href="{{ route('home.language', 'en') }}" class="lang__btn">
                             <i class="lang__icon fa-solid fa-globe"></i>
                             <p>ES</p>
+                        </a>
+                    @else
+                        <a href="{{ route('home.language', 'es') }}" class="lang__btn">
+                            <i class="lang__icon fa-solid fa-globe"></i>
+                            <p>EN</p>
                         </a>
                     @endif
                 </div>

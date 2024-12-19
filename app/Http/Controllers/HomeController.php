@@ -11,8 +11,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $locale = session('locale', 'es'); // Obtener el locale de la sesión o 'en' por defecto
+        $locale = session('locale', 'en'); // Obtener el locale de la sesión o 'en' por defecto
+        
+        // Guardar el idioma en la sesión
+        session(['locale' => $locale]);
+
+        // Establecer el idioma en la aplicación
         App::setLocale($locale);
+        
         return view('home.index');
     }
 
@@ -31,7 +37,7 @@ class HomeController extends Controller
 
     public function focus()
     {
-        $locale = session('locale', 'es'); // Obtener el locale de la sesión o 'en' por defecto
+        $locale = session('locale', 'en'); // Obtener el locale de la sesión o 'en' por defecto
         App::setLocale($locale);
         // API consultar quote
         $url = "https://api.quotable.io/random";
@@ -70,28 +76,28 @@ class HomeController extends Controller
     }
     public function focus_lotr()
     {
-        $locale = session('locale', 'es'); // Obtener el locale de la sesión o 'en' por defecto
+        $locale = session('locale', 'en'); // Obtener el locale de la sesión o 'en' por defecto
         App::setLocale($locale);
         return view('home.focus_lotr');
     }
 
     public function little_Apps()
     {
-        $locale = session('locale', 'es'); // Obtener el locale de la sesión o 'en' por defecto
+        $locale = session('locale', 'en'); // Obtener el locale de la sesión o 'en' por defecto
         App::setLocale($locale);
         return view('home.little_apps');
     }
 
     public function apps()
     {
-        $locale = session('locale', 'es'); // Obtener el locale de la sesión o 'en' por defecto
+        $locale = session('locale', 'en'); // Obtener el locale de la sesión o 'en' por defecto
         App::setLocale($locale);
         return view('home.apps');
     }
 
     public function contact()
     {
-        $locale = session('locale', 'es'); // Obtener el locale de la sesión o 'en' por defecto
+        $locale = session('locale', 'en'); // Obtener el locale de la sesión o 'en' por defecto
         App::setLocale($locale);
         return view('home.contact');
     }
