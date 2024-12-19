@@ -19,6 +19,29 @@ class LanguageMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
+        // $locale = 'en';
+
+        // dd(session('locale'));
+
+        // if ( session('locale') != null) {
+        //     $locale = session('locale');
+        // }
+
+        // // $locale = session('locale', 'en'); // Obtener el locale de la sesión o 'en' por defecto
+        
+        // // Guardar el idioma en la sesión
+        // session(['locale' => $locale]);
+
+        // // Establecer el idioma en la aplicación
+        // App::setLocale($locale);
+
+
+
+
+
+
+
+
         // Este código no funciona porque la sesión no es persistente, por default Laravel almacena la sesión en la DB
         // Este proyecto no tiene DB y ni puede recuperar esta información
 
@@ -32,6 +55,8 @@ class LanguageMiddleware
         //     Session::put('locale', $preferredLocale);
         //     App::setLocale($preferredLocale);
         // }
+
+
 
         return $next($request);
     }
