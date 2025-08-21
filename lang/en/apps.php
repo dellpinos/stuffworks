@@ -6,4 +6,5 @@ return [
     'apps_social' => 'Social Network',
     'apps_bakerystore' => 'Martket Place',
     'apps_mercadofreedom' => 'E-Commerce',
+    'apps_tasktrack3' => 'Project Management Tool'
 ];

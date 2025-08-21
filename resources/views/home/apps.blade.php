@@ -47,6 +47,18 @@
                 <li>>_ Vite</li>
             </ul>
         </a>
+        <a class="apps__enlace" href="https://task3track.dellpinos.com/" target="_blank">
+            <h3>TaskTrack 3</h3>
+            <img src="{{ asset('img/nodejs.svg') }}" alt="Icono NodeJs">
+            <p>{{ __('apps.apps_tasktrack3') }}</p>
+            <ul>
+                <li>>_ Backend: Express - TypeScript</li>
+                <li>>_ Frontend: React - TypeScript</li>
+                <li>>_ MongoDB</li>
+                <li>>_ TypeScript</li>
+                <li>>_ Tailwind</li>
+            </ul>
+        </a>
         <a class="apps__enlace" href="https://net.dellpinos.com" target="_blank">
             <h3>Twack</h3>
             <img src="{{ asset('img/django.svg') }}" alt="Icono Django">
@@ -58,17 +70,6 @@
                 <li>>_ CSS</li>
             </ul>
         </a>
-        {{-- <a class="apps__enlace" href="https://mercadofreedom.dellpinos.com" target="_blank">
-            <h3>MercadoFreedom</h3>
-            <img src="{{ asset('img/codeigniter.svg') }}" alt="Icono Codeigniter">
-            <p>{{ __('apps.apps_mercadofreedom') }}</p>
-            <ul>
-                <li>>_ CodeIgniter - PHP</li>
-                <li>>_ MySQL</li>
-                <li>>_ JavaScript</li>
-                <li>>_ CSS</li>
-            </ul>
-        </a> --}}
     </div>
 </div>
 
