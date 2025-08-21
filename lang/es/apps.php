@@ -6,5 +6,5 @@ return [
     'apps_social' => 'Red Social',
     'apps_bakerystore' => 'Martket Place',
     'apps_mercadofreedom' => 'E-Commerce',
-
+    'apps_tasktrack3' => 'Gestión de proyectos'
 ];
